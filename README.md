@@ -4,7 +4,7 @@ Simple program that manage contact's e-mail and thelephone number.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+A Java application developed with Maven that allows users to register their contacts by adding a phone number and email. Alternatively, the fields can be left empty, allowing them to be filled in or modified later.
 
 ## Getting Started
 
