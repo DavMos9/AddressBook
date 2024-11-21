@@ -1,10 +1,10 @@
 # AddressBook
 
-Simple program that manage contact's e-mail and telephone number.
+A simple program to manage contacts’ email addresses and phone numbers.
 
 ## Description
 
-A Java application developed with Maven that allows users to register their contacts by adding a phone number and email. Alternatively, the fields can be left empty, allowing them to be filled in or modified later.
+A Java application developed with Maven that allows users to register their contacts by adding a phone number and email address. Alternatively, users can leave these fields empty, with the option to fill them in or modify them later.
 
 ## Getting Started
 
