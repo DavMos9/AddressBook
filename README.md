@@ -37,10 +37,10 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-ex. [@davidequaranta8](https://twitter.com/dompizzie)
-ex. [@DavMos9](https://twitter.com/dompizzie)
-ex. [@sedom64](https://twitter.com/dompizzie)
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+* [@davidequaranta8](https://github.com/davidequaranta8)
+* [@DavMos9](https://github.com/DavMos9)
+* [@sedom64](https://github.com/sedom64)
+* [@C1R0nca](https://github.com/C1R0nca)
 
 
 ## Version History
