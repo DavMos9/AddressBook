@@ -47,7 +47,7 @@ Contributors names and contact info
 
 * 0.2
     * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+    * See [commit change](https://github.com/DavMos9/AddressBook/graphs/commit-activity) or See [release history](https://github.com/DavMos9/AddressBook/pulse)
 * 0.1
     * Initial Release
 
