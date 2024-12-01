@@ -36,10 +36,10 @@ public class Contatto{
     public void setCognome(String cognome) {
         
     }
-    public void setTel(String[] tel) {
+    public void setTel(String te1,String tel2,String tel3) {
         
     }
-    public void setMail(String[] mail) {
+    public void setMail(String mail1,String mail2,String mail3) {
         
     }
     

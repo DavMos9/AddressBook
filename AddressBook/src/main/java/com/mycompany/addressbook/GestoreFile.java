@@ -5,17 +5,16 @@
  */
 package com.mycompany.addressbook;
 
-import java.util.Comparator;
-
 /**
  *
  * @author david
  */
-public class Comparatore implements Comparator<Contatto>{ //rispetto il principio di buona progettazione
-    @Override
-    public int compare(Contatto c1, Contatto c2) {
+public class GestoreFile {
+    
+    public static InterfacciaRubrica leggi(String nomefile){
         
     }
-
-    
+    public void scrivi(String nomefile){
+        
+    }
 }
