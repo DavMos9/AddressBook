@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.14715719063545152" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.addressbook.ProgettoController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <VBox layoutX="85.0" layoutY="-64.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MenuBar>
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem fx:id="salvataggioManuale" mnemonicParsing="false" text="Salva" />
+                              <MenuItem fx:id="leggiFile" mnemonicParsing="false" onAction="#leggiFileScanner" text="Import" />
+                              <MenuItem fx:id="scriviFile" mnemonicParsing="false" onAction="#scriviFileScanner" text="Export" />
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Exit">
+                           <items>
+                              <MenuItem fx:id="chiudiSalva" mnemonicParsing="false" onAction="#chiudiSalvaAction" text="Salva ed Esci" />
+                              <MenuItem fx:id="chiudiSenzaSalvare" mnemonicParsing="false" onAction="#chiudiSenzaSalvare" text="Esci senza salvare" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                           <items>
+                              <MenuItem fx:id="doc" mnemonicParsing="false" onAction="#documentazione" text="Documentazione" />
+                           </items>
+                        </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="57.0" text="Ricerca: ">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="fieldRicerca" onAction="#ricerca" prefHeight="31.0" prefWidth="192.0" promptText="Ricerca Contatto">
+                           <HBox.margin>
+                              <Insets left="4.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#aggiungiContatto" prefHeight="34.0" prefWidth="209.0" text="Aggiungi Nuovo Contatto">
+                           <HBox.margin>
+                              <Insets left="260.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="733.0" prefWidth="998.0">
+         <children>
+            <SplitPane dividerPositions="0.6104417670682731" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <TableView fx:id="tableRubrica" layoutX="14.0" layoutY="-14.0" prefHeight="555.0" prefWidth="776.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="nomeClm" prefWidth="75.0" text="Nome" />
+                            <TableColumn fx:id="cognomeClm" prefWidth="75.0" text="Cognome" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="717.0" prefWidth="404.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="105.0" layoutY="74.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="243.0" text="Informazioni Contatto">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Nome:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelNome">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="60.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Cognome:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelCognome">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Numero di Telefono 1:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelNum1">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Numero di Telefono 2:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelNum2">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Numero di Telefono 3:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelNum3">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Indirizzo E-Mail 1:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelMail1">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Indirizzo E-Mail 2:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelMail2">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="29.0" prefWidth="384.0">
+                                 <children>
+                                    <Label text="Indirizzo E-Mail 3:">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="labelMail3">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="eliminaBtn" mnemonicParsing="false" onAction="#eliminaContatto" text="Elimina" />
+                                    <Button fx:id="modificaBtn" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

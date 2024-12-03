@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.addressbook.Progetto2Controller">
+   <children>
+      <Label text="Aggiungi Nuovo Contatto:">
+         <font>
+            <Font size="27.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Anagrafica:">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <padding>
+            <Insets bottom="-30.0" top="30.0" />
+         </padding>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="69.0" prefWidth="800.0">
+         <children>
+            <Label text="Nome:">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="nomeField">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Cognome:">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="cognomeField">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </HBox>
+      <Label text="Numeri di Telefono:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="800.0">
+         <children>
+            <Label text="Tel 1:">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tel1Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Tel 2:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tel2Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Tel 3:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tel3Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Label text="Indirizzi E-Mail:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="800.0">
+         <children>
+            <Label text="Mail 1:">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="mail1Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Mail 2:">
+               <HBox.margin>
+                  <Insets left="16.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="mail2Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Mail 3:">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="mail3Field">
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="confermaBtn" mnemonicParsing="false" onAction="#confermaAggiuntaContatto" prefHeight="40.0" prefWidth="90.0" text="Conferma" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Annulla">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
