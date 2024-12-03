@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package main.java.com.mycompany.addressbook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,8 @@ public class Rubrica implements InterfacciaRubrica{
 
     @Override
     public List<Contatto> getLista() {
-        
+
+        return java.util.Collections.emptyList();
     }
 
     @Override
@@ -35,7 +36,8 @@ public class Rubrica implements InterfacciaRubrica{
 
     @Override
     public Contatto ricercaContatto(Contatto c) {
-        
+
+        return c;
     }
     
     

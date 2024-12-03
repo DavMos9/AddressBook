@@ -1,4 +1,4 @@
-package com.mycompany.addressbook;
+package main.java.com.mycompany.addressbook;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +22,8 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        
+
+        return null;
     }
 
     public static void main(String[] args) {

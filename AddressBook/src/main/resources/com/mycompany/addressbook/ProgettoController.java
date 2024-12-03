@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package main.resources.com.mycompany.addressbook;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +21,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import main.java.com.mycompany.addressbook.Contatto;
+import main.java.com.mycompany.addressbook.InterfacciaRubrica;
+import main.java.com.mycompany.addressbook.Rubrica;
 
 /**
  * FXML Controller class
@@ -77,7 +80,8 @@ public class ProgettoController implements Initializable {
     private ObservableList<Contatto> lista;
     
     public static InterfacciaRubrica getRubrica(){
-        
+
+        return null;
     }
     
     @Override

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package main.java.com.mycompany.addressbook;
 
 import java.util.Comparator;
 
@@ -14,7 +14,8 @@ import java.util.Comparator;
 public class Comparatore implements Comparator<Contatto>{ //rispetto il principio di buona progettazione
     @Override
     public int compare(Contatto c1, Contatto c2) {
-        
+
+        return 0;
     }
 
     

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package main.java.com.mycompany.addressbook;
 
 /**
  *
@@ -12,7 +12,7 @@ package com.mycompany.addressbook;
 public class GestoreFile {
     
     public static InterfacciaRubrica leggi(String nomefile){
-        
+        return null;
     }
     public void scrivi(String nomefile){
         
