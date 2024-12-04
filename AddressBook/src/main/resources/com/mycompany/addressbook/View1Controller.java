@@ -32,8 +32,6 @@ public class View1Controller implements Initializable {
     @FXML
     private MenuItem scriviFileBtn;
     @FXML
-    private MenuItem salvaEEsciBtn;
-    @FXML
     private MenuItem esciBtn;
     @FXML
     private TextField fieldRicerca;
@@ -68,6 +66,8 @@ public class View1Controller implements Initializable {
 
     private static InterfacciaRubrica rubrica = new Rubrica();// è necessario inizializzare in linea
     private ObservableList<Contatto> lista;
+    @FXML
+    private MenuItem salvaEsciBtn;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -89,9 +89,6 @@ public class View1Controller implements Initializable {
     private void scriviFileBtnAction(ActionEvent event) {
     }
 
-    @FXML
-    private void salvaEEsciBtnAction(ActionEvent event) {
-    }
 
     @FXML
     private void esciBtnAction(ActionEvent event) {
@@ -111,6 +108,10 @@ public class View1Controller implements Initializable {
 
     @FXML
     private void modificaContattoBtnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void salvaEsciBtnAction(ActionEvent event) {
     }
     
 }

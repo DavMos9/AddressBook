@@ -23,7 +23,7 @@
                       </Menu>
                         <Menu mnemonicParsing="false" text="Exit">
                            <items>
-                              <MenuItem fx:id="salvaEEsciBtn" mnemonicParsing="false" onAction="#salvaEEsciBtnAction" text="Salva ed Esci" />
+                              <MenuItem fx:id="salvaEsciBtn" mnemonicParsing="false" onAction="#salvaEsciBtnAction" text="Salva ed Esci" />
                               <MenuItem fx:id="esciBtn" mnemonicParsing="false" onAction="#esciBtnAction" text="Esci senza salvare" />
                            </items>
                         </Menu>
