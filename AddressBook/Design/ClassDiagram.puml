@@ -1,0 +1,82 @@
+@startuml
+!theme toy
+class App {
+  {static} - scene : Scene
+  + start(Stage: Stage): void
+  + main(args: String[]): void
+  + setRoot(fxml: String): void
+  + loadFXML(fxml: String): Parent
+}
+
+class RubricaController {
+  - rubrica: InterfacciaRubrica
+  - lista: ObservableList<Contatto>
+  + initialize(url: URL, rb: ResourceBundle): void
+  + getInterfacciaRubrica(): InterfacciaRubrica
+  + salvaRubricaBtnAction(event: ActionEvent): void
+  + salvaFileBtnAction(event: ActionEvent): void
+  + leggiFileBtnAction(event: ActionEvent): void
+  + esciBtnAction(event: ActionEvent): void
+  + ricercaAction(event: ActionEvent): void
+  + aggiungiContattoBtnAction(event: ActionEvent): void
+  + eliminaContattoBtnAction(event: ActionEvent): void
+  + modificaContattoBtnAction(event: ActionEvent): void
+}
+
+class AggiungiModificaController {
+  + initialize(url: URL, rb: ResourceBundle): void
+  + confermaBtnAction(event: ActionEvent): void
+  + annullaBtnAction(event: ActionEvent): void
+}
+
+class Rubrica {
+  - lista: List<Contatto>
+  + Rubrica()
+  + aggiungiContatto(c: Contatto): void
+  + modificaContatto(c: Contatto): void
+  + eliminaContatto(c: Contatto): void
+  + ricercaContatto(c: Contatto): Contatto
+  + getLista(): List<Contatto>
+}
+
+class Contatto {
+  - nome: String
+  - cognome: String
+  - tel: String[]
+  - mail: String[]
+  + setNome(nome: String): void
+  + getNome(): String
+  + setCognome(cognome: String): void
+  + getCognome(): String
+  + setTel(tel1: String, tel2: String, tel3: String): void
+  + getTel(): String[]
+  + setMail(mail1: String, mail2: String, mail3: String): void
+  + getMail(): String[]
+}
+
+interface InterfacciaRubrica {
+  + aggiungiContatto(c: Contatto): void
+  + modificaContatto(c: Contatto): void
+  + eliminaContatto(c: Contatto): void
+  + ricercaContatto(c: Contatto): Contatto
+  + getLista(): List<Contatto>
+}
+
+class Comparatore {
+  + compare(c1: Contatto, c2: Contatto): int
+}
+
+class GestoreFile {
+  + leggi(nomefile: String): InterfacciaRubrica
+  + scrivi(nomefile: String): void
+}
+
+Rubrica ..|> InterfacciaRubrica
+Rubrica "1" --> "many" Contatto
+Comparatore ..>"1..1" Contatto : uses
+GestoreFile ..> InterfacciaRubrica : returns
+InterfacciaRubrica ..>"1..1" Contatto : uses
+AggiungiModificaController ..>"1..1" RubricaController : uses
+RubricaController "1" --> "1" InterfacciaRubrica
+RubricaController "1" --> "1" GestoreFile
+@enduml
