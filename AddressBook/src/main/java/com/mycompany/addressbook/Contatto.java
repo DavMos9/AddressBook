@@ -37,15 +37,16 @@ public class Contatto{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setCognome(String cognome) {
+    public void setCognome(String cognome){
         this.cognome = cognome;
     }
-    public void setTel(String tel1,String tel2,String tel3) {
+    public void setTel(String tel1,String tel2,String tel3){
         this.tel[0] = tel1;
         this.tel[1]=tel2;
         this.tel[2]=tel3;
     }
-    public void setMail(String mail1,String mail2,String mail3) {
+    
+    public void setMail(String mail1,String mail2,String mail3){
         mail[0]=mail1;
         mail[1]=mail2;
         mail[2]=mail3;

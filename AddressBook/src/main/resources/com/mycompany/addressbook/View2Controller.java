@@ -5,13 +5,13 @@
  */
 package com.mycompany.addressbook;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -19,16 +19,16 @@ import javafx.scene.control.TextField;
  *
  * @author david
  */
-public class Progetto2Controller implements Initializable {
+public class View2Controller implements Initializable {
 
+    @FXML
+    private Label labelTitle;
     @FXML
     private TextField nomeField;
     @FXML
     private TextField cognomeField;
     @FXML
     private TextField tel1Field;
-    @FXML
-    private Button confermaBtn;
     @FXML
     private TextField tel2Field;
     @FXML
@@ -39,18 +39,23 @@ public class Progetto2Controller implements Initializable {
     private TextField mail2Field;
     @FXML
     private TextField mail3Field;
-    
+    @FXML
+    private Button confermaBtn;
+    @FXML
+    private Button annullaBtn;
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+        // TODO
+    }    
+
+    @FXML
+    private void confermaBtnAction(ActionEvent event) {
     }
 
     @FXML
-    private void confermaAggiuntaContatto(ActionEvent event) throws IOException {
-        
-        
+    private void annullaBtnAction(ActionEvent event) {
     }
-    
     
 }
