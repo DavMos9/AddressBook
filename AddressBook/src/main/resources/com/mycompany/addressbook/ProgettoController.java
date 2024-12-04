@@ -78,14 +78,12 @@ public class ProgettoController implements Initializable {
     private ObservableList<Contatto> lista;
     
     public static InterfacciaRubrica getRubrica(){
-
-        return null;
+        return rubrica;
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }     
+    }
 
     @FXML
     private void ricerca(ActionEvent event){

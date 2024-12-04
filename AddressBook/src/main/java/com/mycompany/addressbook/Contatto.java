@@ -12,13 +12,21 @@ public class Contatto{
     private String[] mail;
     
     public Contatto(String nome,String cognome,String tel1,String tel2,String tel3,String mail1,String mail2,String mail3){
-        
+        this.nome=nome;
+        this.cognome=cognome;
+        this.tel=new String[3];
+        this.mail=new String[3];
+        this.tel[0]=tel1;
+        this.tel[1]=tel2;
+        this.tel[2]=tel3;
+        this.mail[0]=mail1;
+        this.mail[1]=mail2;
+        this.mail[2]=mail3;
     }
 
     
     /*      -----      */
     public String getNome() {
-
         return nome;
     }
     public String getCognome() {
