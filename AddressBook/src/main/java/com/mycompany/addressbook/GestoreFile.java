@@ -34,6 +34,7 @@ public class GestoreFile {
     }
 
     /**
+     *
      * @brief Scrive i dati della rubrica in un file.
      *
      * Questo metodo salva i dati della rubrica corrente nel file specificato.
