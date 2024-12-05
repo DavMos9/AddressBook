@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
  *
  * @author david
  */
-public class View2Controller implements Initializable {
+public class AggiungiModificaController implements Initializable {
 
     @FXML
     private Label labelTitle;
@@ -44,10 +44,12 @@ public class View2Controller implements Initializable {
     @FXML
     private Button annullaBtn;
 
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        // TODO
     }    
 
     @FXML

@@ -7,7 +7,6 @@ package com.mycompany.addressbook;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +22,7 @@ import javafx.scene.control.TextField;
  *
  * @author david
  */
-public class View1Controller implements Initializable {
+public class RubricaController implements Initializable {
 
     @FXML
     private MenuItem salvataggioBtn;
@@ -32,15 +31,19 @@ public class View1Controller implements Initializable {
     @FXML
     private MenuItem scriviFileBtn;
     @FXML
+    private MenuItem salvaEsciBtn;
+    @FXML
     private MenuItem esciBtn;
     @FXML
     private TextField fieldRicerca;
     @FXML
     private Button aggiungiBtn;
     @FXML
-    private TableColumn<Contatto, String> cognomeClm;
+    private TableView<?> tableRubrica;
     @FXML
-    private TableColumn<Contatto, String> nomeClm;
+    private TableColumn<?, ?> cognomeClm;
+    @FXML
+    private TableColumn<?, ?> nomeClm;
     @FXML
     private Label labelNomeView;
     @FXML
@@ -61,22 +64,15 @@ public class View1Controller implements Initializable {
     private Button eliminaBtn;
     @FXML
     private Button modificaBtn;
-    @FXML
-    private TableView<Contatto> tableRubrica;
 
-    private static InterfacciaRubrica rubrica = new Rubrica();// è necessario inizializzare in linea
-    private ObservableList<Contatto> lista;
-    @FXML
-    private MenuItem salvaEsciBtn;
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
-    public static InterfacciaRubrica getRubrica(){
-        return rubrica;
-    }
-    
+
     @FXML
     private void salvataggioBtnAction(ActionEvent event) {
     }
@@ -89,6 +85,9 @@ public class View1Controller implements Initializable {
     private void scriviFileBtnAction(ActionEvent event) {
     }
 
+    @FXML
+    private void salvaEsciBtnAction(ActionEvent event) {
+    }
 
     @FXML
     private void esciBtnAction(ActionEvent event) {
@@ -108,10 +107,6 @@ public class View1Controller implements Initializable {
 
     @FXML
     private void modificaContattoBtnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void salvaEsciBtnAction(ActionEvent event) {
     }
     
 }
