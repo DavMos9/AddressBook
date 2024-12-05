@@ -11,10 +11,10 @@ package com.mycompany.addressbook;
  */
 public class GestoreFile {
     
-    public static InterfacciaRubrica leggi(String nomefile){
+    public static InterfacciaRubrica leggiFile(String nomefile){
         return null;
     }
-    public void scrivi(String nomefile){
+    public void scriviFile(String nomefile){
         
     }
 }

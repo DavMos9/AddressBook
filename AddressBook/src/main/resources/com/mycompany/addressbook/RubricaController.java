@@ -7,6 +7,7 @@ package com.mycompany.addressbook;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,8 +26,6 @@ import javafx.scene.control.TextField;
 public class RubricaController implements Initializable {
 
     @FXML
-    private MenuItem salvataggioBtn;
-    @FXML
     private MenuItem leggiFileBtn;
     @FXML
     private MenuItem scriviFileBtn;
@@ -39,11 +38,11 @@ public class RubricaController implements Initializable {
     @FXML
     private Button aggiungiBtn;
     @FXML
-    private TableView<?> tableRubrica;
+    private TableView<Contatto> tableRubrica;
     @FXML
-    private TableColumn<?, ?> cognomeClm;
+    private TableColumn<Contatto,String> cognomeClm;
     @FXML
-    private TableColumn<?, ?> nomeClm;
+    private TableColumn<Contatto,String> nomeClm;
     @FXML
     private Label labelNomeView;
     @FXML
@@ -64,49 +63,64 @@ public class RubricaController implements Initializable {
     private Button eliminaBtn;
     @FXML
     private Button modificaBtn;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private MenuItem salvataggioManualeBtn;
+    private static InterfacciaRubrica rubrica = new Rubrica();// è necessario inizializzare in linea
+    private ObservableList<Contatto> lista;
+    
+    
+    public static InterfacciaRubrica getInterfacciaRubrica(){
+        return rubrica;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    
     }    
 
-    @FXML
-    private void salvataggioBtnAction(ActionEvent event) {
-    }
 
     @FXML
     private void leggiFileBtnAction(ActionEvent event) {
+     
     }
 
     @FXML
     private void scriviFileBtnAction(ActionEvent event) {
+    
     }
 
     @FXML
     private void salvaEsciBtnAction(ActionEvent event) {
+      
     }
 
     @FXML
     private void esciBtnAction(ActionEvent event) {
+      
     }
 
     @FXML
     private void ricercaAction(ActionEvent event) {
+       
     }
 
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) {
+       
     }
 
     @FXML
     private void eliminaContattoBtnAction(ActionEvent event) {
+        
     }
 
     @FXML
     private void modificaContattoBtnAction(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void salvataggioManualeBtnAction(ActionEvent event) {
     }
     
 }

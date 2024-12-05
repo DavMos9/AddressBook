@@ -18,7 +18,7 @@ public class Rubrica implements InterfacciaRubrica{
     @Override
     public List<Contatto> getLista() {
 
-        return java.util.Collections.emptyList();
+        return null;
     }
 
     @Override
