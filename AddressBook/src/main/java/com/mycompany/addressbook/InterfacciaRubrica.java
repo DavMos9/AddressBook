@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @brief Classe di front-end per la gestione delle principali funzionalità della rubrica.
  *
+ *
  * La classe InterfacciaRubrica definisce le seguenti operazioni sulla rubrica telefonica:
  * aggiungiContatto, modificaContatto, eliminaContatto, ricercaContatto.
  *
@@ -22,6 +23,7 @@ public interface InterfacciaRubrica {
 
     /**
      * @brief
+     *
      * aggiungiContatto: accetta in input un parametro di tipo Contatto
      *       Permette l'aggiunta di un nuovo contatto nella rubrica
      *

@@ -28,6 +28,7 @@ public class Comparatore implements Comparator<Contatto>{ //rispetto il principi
      * e restituisce un valore numerico (0 oppure 1) rispettivamente se il primo contatto risulta
      * essere minore o maggiore del secondo contatto
      *
+     *
      * @param c1 rappresenta il primo contatto da confrontare
      * @param c2 rappresenta il secondo contatto da confrontare
      * @return restituisce il valore che indica l'ordine dei contatti inseriti
