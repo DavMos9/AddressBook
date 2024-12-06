@@ -29,7 +29,7 @@ public class GestoreFile {
      *
      */
 
-    public static InterfacciaRubrica leggi(String nomefile){
+    public static InterfacciaRubrica leggiFile(String nomefile){
         return null;
     }
 
@@ -43,7 +43,7 @@ public class GestoreFile {
      * @param nomefile Il nome del file in cui scrivere i dati.
      */
 
-    public void scrivi(String nomefile){
+    public void scriviFile(String nomefile){
         
     }
 }
