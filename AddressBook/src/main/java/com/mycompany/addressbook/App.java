@@ -32,6 +32,7 @@ public class App extends Application {
      * @param stage La scena principale dell'applicazione.
      * @throws IOException Se il file FXML non può essere caricato.
      */
+
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("Rubrica"), 1000, 800);
@@ -75,10 +76,9 @@ public class App extends Application {
      *
      * Questo metodo avvia l'applicazione JavaFX.
      *
-     * @param args Argomenti della riga di comando.
      */
 
-    public static void main(String[] args) {
+    public static void main() {
         launch();
     }
 
