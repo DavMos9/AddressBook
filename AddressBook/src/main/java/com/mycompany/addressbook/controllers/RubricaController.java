@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package com.mycompany.addressbook.controllers;
 
+import com.mycompany.addressbook.gestionerubrica.Contatto;
+import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
+import com.mycompany.addressbook.rubrica.Rubrica;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;

@@ -1,4 +1,4 @@
-package com.mycompany.addressbook;
+package com.mycompany.addressbook.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

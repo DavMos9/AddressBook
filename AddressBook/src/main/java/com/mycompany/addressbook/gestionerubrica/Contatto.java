@@ -1,4 +1,4 @@
-package com.mycompany.addressbook;
+package com.mycompany.addressbook.gestionerubrica;
 
 /**
  * @file Contatto.java

@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.addressbook;
+package com.mycompany.addressbook.gestionerubrica;
+
+import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 
 /**
  * @class GestoreFile
