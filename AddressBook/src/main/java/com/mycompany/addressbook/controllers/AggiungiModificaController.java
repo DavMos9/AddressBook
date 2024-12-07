@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
  * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di 
  * aggiunta e modifica dei contatti all'interno della Rubrica.
  * 
- * @author Davide Quaranta
+ * @author Quaranta Davide 
  */
 public class AggiungiModificaController implements Initializable {
 
@@ -46,7 +46,7 @@ public class AggiungiModificaController implements Initializable {
 
     /**
      *  
-     * @brief è un Metodo che permette di inizializzare il controller legato al file della Scena(AggiungiModifica.fxml).
+     * @brief è un Metodo che permette di inizializzare il controller legato al file della Scena AggiungiModifica.fxml.
      *
      * 
      * 
@@ -67,10 +67,10 @@ public class AggiungiModificaController implements Initializable {
      * 
      * @brief è il metodo legato all'azione del click del bottone denominato confermaBtn nella Scena.
      * 
-     * Tale metodo permette di confemare le operazioni effettuate sulla rubrica, visibile nella Scena (Rubrica.fxml).
-     * Nello specifico le operazioni di Aggiunta e modifica di un contatto. Infine permette l'ordinamento di essi e il ritorno alla Scena Rubrica.fxml .
+     * Tale metodo permette di confemare le operazioni effettuate sulla rubrica, visibile nella Scena principale Rubrica.fxml.
+     * Nello specifico le operazioni di Aggiunta e modifica di un contatto. Infine permette l'ordinamento di essi e il ritorno alla Scena principale.
      * 
-     * @pre l'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica".
+     * @pre l'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
      * 
      * @post viene modificato il contatto selezionato, oppure viene aggiunto il nuovo contatto alla rubrica.
      * 
@@ -84,9 +84,9 @@ public class AggiungiModificaController implements Initializable {
      * 
      * @brief è il metodo legato all'azione del click del bottone denominato annullaBtn nella Scena.
      * 
-     * Tale metodo permette di annullare le operazioni di aggiunta o modifica di contatti all'interno della rubrica, visibile nella Scena (Rubrica.fxml), e infine permette il ritorno alla Scena Rubrica.fxml .
+     * Tale metodo permette di annullare le operazioni di aggiunta o modifica di contatti all'interno della rubrica, visibile nella Scena principale, e infine permette il ritorno ad essa .
      * 
-     * @pre l'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica".
+     * @pre l'utente ha accesso alla Scena AggiungiModifica.fxml, grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
      * 
      * @post ciò che viene effettuato sulla seconda scena quindi modifica delle informazioni di un contatto, o aggiunta di un nuovo contatto, non si riflette sulla Rubrica.
      * 

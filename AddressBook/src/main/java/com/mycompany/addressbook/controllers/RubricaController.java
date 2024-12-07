@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
  * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di ricerca, eliminazione o visualizzazione in dettaglio e non dei contatti elencati nella rubrica, 
  * e inoltre le operazioni di salvataggio o importazione di rubriche all'interno di essa.
  * 
- * @author Davide Quaranta
+ * @author Quaranta Davide 
  */
 public class RubricaController implements Initializable {
 
@@ -74,7 +74,7 @@ public class RubricaController implements Initializable {
     @FXML
     private MenuItem salvataggioManualeBtn;
     /**
-     * @brief attributo usato per istanziare un oggetto della Classe Rubrica
+     * @brief attributo usato per istanziare un oggetto di tipo InterfacciaRubrica
      */
     private static InterfacciaRubrica rubrica = new Rubrica();
     /**
@@ -83,7 +83,7 @@ public class RubricaController implements Initializable {
      */
     private ObservableList<Contatto> lista;
     /**
-     * @brief metodo che restituisce l'attributo InterfacciaRubrica.
+     * @brief metodo che restituisce l'attributo di tipo InterfacciaRubrica.
      * 
      * 
      * @return attributo InterfacciaRubrica
@@ -97,7 +97,7 @@ public class RubricaController implements Initializable {
     
     /**
      *  
-     * @brief metodo che permette di inizializzare il controller legato al file della Scena(Rubrica.fxml).
+     * @brief metodo che permette di inizializzare il controller legato al file della Scena Rubrica.fxml.
      *
      * 
      * 
@@ -115,7 +115,7 @@ public class RubricaController implements Initializable {
     }    
 
     /**
-     * @brief permette la lettura di un file.
+     * @brief permette la lettura di un file, grazie al metodo \ref GestoreFile::leggiFile(String nomefile) "leggiFile" di GestoreFile.
      * 
      * permette di selezionare un file all'interno del dispositivo e di leggerlo in modo tale da poter importare una Rubrica esterna salvata su file.
      * Ciò ci permette di non visualizzare più la Rubrica corrente ma quella caricata dal file.
@@ -128,11 +128,11 @@ public class RubricaController implements Initializable {
      
     }
     /**
-     * @brief permette la scrittura su file della Rubrica.
+     * @brief permette la scrittura su file della Rubrica, grazie al metodo \ref GestoreFile::ScriviFile(String nomefile) "ScriviFile" di GestoreFile.
      * 
      * permette di salvare il contenuto della Rubrica all'interno di un file, che possiamo nominare come vogliamo e possiamo posizionare dove vogliamo nel dispositivo corrente.
-     * Ciò avviene grazie all'ausilio della classe GestoreFile.
-     * @see GestoreFile
+     * 
+     * 
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto scriviFileBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
@@ -142,7 +142,7 @@ public class RubricaController implements Initializable {
     
     }
     /**
-     * @brief permette di salvare le modifiche su un file e  di chiudere l'applicazione.
+     * @brief permette di salvare le modifiche su un file e di chiudere l'applicazione.
      * 
      * permette di effettuare la scrittura del file di Default per la Rubrica e di uscire dall'applicazione.
      * 
@@ -167,7 +167,7 @@ public class RubricaController implements Initializable {
     }
     /**
      * 
-     * @brief Operazione che permette di ricercare un contatto all'interno della Rubrica.
+     * @brief permette di ricercare un contatto all'interno della Rubrica.
      * 
      *
      * @post viene mostrato il risultato della ricerca.
@@ -180,10 +180,10 @@ public class RubricaController implements Initializable {
        
     }
     /**
-     * @brief permette di aggiungere un contatto in Rubrica e di visualizzarlo al suo interno.
+     * @brief permette di aggiungere un contatto in Rubrica e di visualizzarlo al suo interno, grazie al metodo \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto" .
      * 
-     * Permette di visualizzare il contatto aggiunto all'interno della rubrica attraverso l'ausilio dei metodi della classe Rubrica .
-     * @see AggiungiContatto(Contatto c) in InterfacciaRubrica
+     * Permette di visualizzare il contatto aggiunto all'interno della rubrica.
+     * 
      * @post il contatto è visibile nella rubrica presente nella Scena.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto aggiungiBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
@@ -194,8 +194,8 @@ public class RubricaController implements Initializable {
     }
     /**
      * 
-     * @brief permette di rimuovere e non visualizzare più un Contatto dalla Rubrica.
-     * @see eliminaContatto(Contatto c)
+     * @brief permette di rimuovere e non visualizzare più un Contatto dalla Rubrica mostrata, grazie al metodo in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto"
+     * 
      * @pre ricercare il contatto da voler eliminare.
      * @post contatto non più presente e visualizzabile nella rubrica.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto eliminaBtn,
@@ -206,9 +206,10 @@ public class RubricaController implements Initializable {
         
     }
     /**
-     * @brief permette la modifica di un contatto.
+     * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
      * 
-     * Permette di modificare le informazioni di un Contatto.
+     * Permette la modifica di un contatt,o visibile nella Rubrica mostrata nella Scena. 
+     * 
      * @pre ricercare il contatto da voler modificare.
      * @post modifica visibili nella Rubrica della Scena.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto modificaBtn,
@@ -219,9 +220,9 @@ public class RubricaController implements Initializable {
         
     }
     /**
-     * @brief permette il Salvataggio Manuale della Rubrica durante la sessione.
+     * @brief permette il Salvataggio Manuale della Rubrica durante la sessione, grazie all'uso del metodo \ref GestoreFile::scriviFile(String nomefile) "scriviFile" in GestoreFile.
      * 
-     * Permette di salvare il contenuto della Rubrica, in maniera manuale, durante la sessione.
+     * Permette di salvare il contenuto della Rubrica, in maniera manuale, durante la sessione. 
      * @post rubrica salvata sul File di Default.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto salvataggioManualeBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 

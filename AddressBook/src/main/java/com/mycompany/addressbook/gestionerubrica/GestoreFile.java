@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.addressbook.gestionerubrica;
 
 import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
@@ -11,10 +6,9 @@ import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
  * @class GestoreFile
  * @brief Classe per la gestione del file di salvataggio della rubrica.
  *
- * Questa classe fornisce metodi per leggere i dati da un file e scriverli
- * in un file,gestendo così il caricamento e il salvataggio della rubrica.
- *
- * @author Moscariello
+ * Questa classe fornisce metodi per leggere e scrivere su un file, gestendo così il caricamento e il salvataggio della rubrica.
+ * 
+ * @author Moscariello Davide
  *
  */
 public class GestoreFile {
@@ -22,7 +16,7 @@ public class GestoreFile {
     /**
      * @brief Legge i dati della rubrica da un file.
      *
-     * Questo metodo apre il file specificato, legge i dati e li converte
+     * Questo metodo accede al file specificato, legge i dati e li converte
      * in un'istanza di `InterfacciaRubrica`.
      *
      * @param nomefile Il nome del file da cui leggere i dati.

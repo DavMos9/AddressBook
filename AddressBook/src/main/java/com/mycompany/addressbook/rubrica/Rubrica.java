@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.addressbook.rubrica;
 
 import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
@@ -15,60 +10,47 @@ import java.util.List;
 /**
  *
  * @file Rubrica.java
- * @brief Questo file gestisce una rubrica
+ * @class Rubrica
+ * @brief Classe che implementa e gestisce una Rubrica di contatti.
  * 
- * La classe rubrica permette di aggiungere,modificare,eliminare e ricercare
- * un contatto nella rubrica
+ * La classe rubrica, implementa l'interfaccia InterfacciaRubrica che permette di aggiungere,modificare,eliminare e ricercare
+ * un contatto nella rubrica.
+ * Per la Documentazione di tutti i metodi vedere l'interfaccia @ref InterfacciaRubrica
  * 
- * @author ronca
+ * @author Ronca Ciro
  * 
  * 
  */
 public class Rubrica implements InterfacciaRubrica{
     
     /**
-     * @brief Lista usata per permettere di gestire i tutti i contatti
+     * @brief Lista usata per permettere di gestire tutti i contatti.
      */
     private List<Contatto> lista;
     
     
     /**
      * 
-     * @brief Costruttore di dafault della classe contatto
+     * @brief Costruttore della classe Rubrica.
+     * 
+     * permette di istanziare una Lista di contatti.
      * 
      */
     public Rubrica(){
         
     }
-
     /**
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::getLista() "getLista".
      * 
-     * @brief Restituisce la lista dei contatti
-     * 
-     * Questo metodo permette di ottenere una lista dei contatti
-     * ordinata per cognome
-     * 
-     * @return null
      */
-    
     @Override
     public List<Contatto> getLista() {
 
         return null;
     }
-
-    
     /**
      * 
-     * @brief  Aggiunge un contatto alla rubrica
-     * 
-     * @param [in] c Contatto da aggiungere alla rubrica
-     * 
-     * @pre
-     * Per aggiungere un contatto e' condizione necessaria che almeno uno 
-     * dei due campi nome o cognome sia valorizzato
-     * 
-     * 
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto".
      */
     @Override
     public void aggiungiContatto(Contatto c) {
@@ -76,48 +58,24 @@ public class Rubrica implements InterfacciaRubrica{
     }
     
     /**
-     * 
-     * @brief Modifica un contatto all'interno della rubrica
-     * 
-     * @param [in] c Contatto da modificare all'interno della rubrica
-     * 
-     * @pre
-     * Per avere un modfica con successo, e' condizione necessaria che almeno uno dei
-     * due campi nome o cognome sia avvolorato
-     * 
-     * 
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
+     *  
      */
-
     @Override
-    public void modificaContatto(Contatto c) {
+    public void modificaContatto(Contatto c){
     }
-
-    
     /**
-     * 
-     * @brief Elimina un contatto all'interno della rubrica
-     * 
-     * @param [in] c Contatto da eliminare all'interno della rubrica
-     * 
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto".
      * 
      */
     @Override
     public void eliminaContatto(Contatto c) {
     }
-    
-    
     /**
      * 
-     * @brief Ricerca un contatto all'interno della rubrica
-     * 
-     * E' possibile ricercare un contatto inserendo il cognome, il nome o entrambi.
-     * Inoltre viene fatta una ricerca inserendo la sottostringa iniziale del cognome o del nome
-     * 
-     * @param [in] c Contatto da ricercare all'interno della rubrica
-     * 
-     * @return c Viene restituito il contatto ricercato
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::ricercaContatto(Contatto c) "ricercaContatto".
+     *  
      */
-
     @Override
     public Contatto ricercaContatto(Contatto c) {
 

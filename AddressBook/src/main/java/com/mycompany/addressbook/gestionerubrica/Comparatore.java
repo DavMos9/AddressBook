@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.addressbook.gestionerubrica;
 
 import java.util.Comparator;
@@ -16,24 +11,20 @@ import java.util.Comparator;
  * La classe Comparatore permette di confrontare due contatti in modo tale che si
  * possano ordinare in base al cognome e nome.
  *
- *  @author Domenico
+ *  @author Sessa Domenico
  */
-public class Comparatore implements Comparator<Contatto>{ //rispetto il principio di buona progettazione
+public class Comparatore implements Comparator<Contatto>{ 
 
     /**
-     * @brief Connfronto dei contatti
+     * @brief Confronto dei contatti
      *
-     * Questo Metodo riceve in input due parametri che corrispondono ai dati di due contatti
-     * i contatti in ingresso sono di tipo Contatto e sono idenfificati come c1 e c2
-     * e restituisce un valore numerico (0 oppure 1) rispettivamente se il primo contatto risulta
-     * essere minore o maggiore del secondo contatto
+     * Questo Metodo riceve in input due parametri che corrispondono a due oggetti Contatto,
+     * sulla base dei quali viene valutato il loro ordinamento tramite i campi cognome e nome.
      *
-     *
-     * @param c1 rappresenta il primo contatto da confrontare
-     * @param c2 rappresenta il secondo contatto da confrontare
-     * @return restituisce il valore che indica l'ordine dei contatti inseriti
+     * @param c1 rappresenta il primo contatto da confrontare.
+     * @param c2 rappresenta il secondo contatto da confrontare.
+     * @return restituisce un valore numerico che definisce l'ordine dei contatti inseriti.
      */
-
     @Override
     public int compare(Contatto c1, Contatto c2) {
 

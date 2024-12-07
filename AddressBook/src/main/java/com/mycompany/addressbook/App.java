@@ -10,12 +10,11 @@ import java.io.IOException;
 
 /**
  * @class App
- * @brief Classe principale per l'applicazione rubrica telefonica.
+ * @brief Classe main per l'avvio dell'applicazione rubrica telefonica.
  *
  * Questa classe gestisce l'avvio dell'applicazione e il caricamento dell'interfaccia utente.
  *
- * @author Moscariello
- *
+ * @author Moscariello Davide
  *
  */
 
@@ -27,10 +26,10 @@ public class App extends Application {
      * @brief Avvia l'applicazione.
      *
      * Questo metodo viene chiamato automaticamente all'avvio dell'applicazione.
-     * Imposta la scena principale definita nel file FXML.
+     * Imposta e mostra la scena principale definita nel file FXML.
      *
-     * @param stage La scena principale dell'applicazione.
-     * @throws IOException Se il file FXML non può essere caricato.
+     * @param stage rappresenta la finestra dell'applicazione.
+     * @throws IOException viene sollevata se il file FXML non può essere caricato.
      */
 
     @Override
@@ -58,14 +57,13 @@ public class App extends Application {
     /**
      * @brief Carica un file FXML e restituisce il nodo radice.
      *
-     * Questo metodo utilizza FXMLLoader per caricare un file FXML e restituire
-     * la configurazione radice definito in esso.
+     * Questo metodo utilizza FXMLLoader per caricare un file FXML e restituisce
+     * la configurazione radice definita in esso.
      *
      * @param fxml Il nome del file FXML da caricare.
      * @return Il nodo radice del layout caricato.
      * @throws IOException Se il file FXML non può essere caricato.
      */
-
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
@@ -76,6 +74,7 @@ public class App extends Application {
      *
      * Questo metodo avvia l'applicazione JavaFX.
      *
+     * @param[in] args vettore che presenta al suo interno tutti i dati passati da riga di comando.
      */
 
     public static void main(String[] args) {

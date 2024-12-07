@@ -2,13 +2,14 @@ package com.mycompany.addressbook.gestionerubrica;
 
 /**
  * @file Contatto.java
- * @brief Questo file crea un contatto
+ * @class Contatto
+ * @brief Questa classe definisce la Struttura Dati di un Contatto
  * 
  * La classe contatto include nome,cognome,telefono e mail.
  * Inoltre permette di inserire da 0 a 3 numeri di telefono e da 0 a 3 inidirizzi mail
  * 
  * 
- * @author ronca
+ * @author Ronca Ciro
  * 
  */
 
@@ -16,22 +17,22 @@ public class Contatto{
     
     
     /**
-     * @brief Stringa usata per indicare il nome del contatto
+     * @brief Stringa usata per indicare il nome del contatto.
      */
     private String nome;
     
     /**
-     * @brief Stringa usata per indicare il cognome del contatto
+     * @brief Stringa usata per indicare il cognome del contatto.
      */
     private String cognome;
     
     /**
-     * @brief Array di stringhe usata per indicare i numeri di telefono del contatto
+     * @brief Array di stringhe usato per indicare i numeri di telefono del contatto.
      */
     private String[] tel;
     
     /**
-     * @brief Array di stringhe usata per indicare gli indirizzi mail del contatto
+     * @brief Array di stringhe usato per indicare gli indirizzi mail del contatto.
      */
     private String[] mail;
     
@@ -40,7 +41,9 @@ public class Contatto{
     
     /**
      * 
-     * @brief Costruttore di default della classe contatto
+     * @brief Costruttore della classe contatto.
+     * 
+     * @pre il contatto deve presentare almeno il nome o il cognome valorizzato.
      * 
      * @param[in] nome Il nome del contatto
      * @param[in] cognome Il cognome del contatto
@@ -68,13 +71,13 @@ public class Contatto{
     }
 
     
-        ///METODI GETTER
+        
     
     /**
      * 
      * @brief Restituisce il nome del contatto
      * 
-     * Questo metodo consente di ottenere il nome attuale
+     * Questo metodo consente di ottenere la stringa del nome 
      * 
      * 
      * @return Una stringa rappresentate il nome del contatto
@@ -89,7 +92,7 @@ public class Contatto{
      * 
      * @brief Restituisce il cognome del contatto
      * 
-     * Questo metodo consente di ottenere il cognome attuale
+     * Questo metodo consente di ottenere la stringa del cognome
      * 
      * 
      * @return Una stringa rappresentate il cognome del contatto
@@ -117,10 +120,9 @@ public class Contatto{
      * 
      * @brief Restituisce gli indirizzi mail del contatto
      * 
-     * Questo metodo permette di ottere gli indirizzi mail
+     * Questo metodo permette di ottenere gli indirizzi mail
      * 
-     * @return Un array di stringhe rappresentate gli indirizi mail
-     * 
+     * @return Un array di stringhe rappresentate gli indirizzi mail
      * 
      */ 
     public String[] getMail() {
@@ -128,17 +130,14 @@ public class Contatto{
     }
 
     
-     ///METODI SETTER
+     
     
     /**
      * 
      * 
-     * @brief settiamo il nome del contatto
+     * @brief metodo che permette di impostare il nome del contatto.
      * 
-     * Questo metodo permette di settare il nome del contatto
-     * 
-     * @param[in] nome Una stringa che rappresenta il nome del contatto
-     * 
+     * @param[in] nome Una stringa che rappresenta il nome del contatto.
      * 
      */
     public void setNome(String nome) {
@@ -148,10 +147,7 @@ public class Contatto{
     
     /**
      * 
-     * 
-     * @brief settiamo il cognome del contatto
-     * 
-     * Questo metodo permette di settare il cognome del contatto
+     * @brief metodo che permette di impostare il cognome del contatto.
      * 
      * @param[in] cognome Una stringa che rappresenta il cognome del contatto 
      * 
@@ -164,15 +160,11 @@ public class Contatto{
     
     /**
      * 
+     * @brief metodo che permette di impostare i numeri di telefono del contatto.
      * 
-     * @brief settiamo i numeri di telefono del contatto
-     * 
-     * Questo metodo permette di settare i numeri di telefono del contatto
-     * 
-     * @param[in] tel1 Questa stringa che rappresenta il primo numero di telefono del contatto
-     * @param[in] tel2 Questa stringa che rappresenta il secondo numero di telefono del contatto
-     * @param [in] tel3 Questa stringa che rappresenta il terzo numero di telefono
-     * 
+     * @param[in] tel1 Questa stringa rappresenta il primo numero di telefono del contatto.
+     * @param[in] tel2 Questa stringa rappresenta il secondo numero di telefono del contatto.
+     * @param [in] tel3 Questa stringa rappresenta il terzo numero di telefono.
      * 
      */
     public void setTel(String tel1,String tel2,String tel3){
@@ -183,9 +175,9 @@ public class Contatto{
     
     /**
      * 
-     * @brief settiamo gli indirizzi mail del contatto
+     * @brief metodo che permette di impostare le email del contatto.
      * 
-     * Questo metodo permette di settare gli indirizzi mail del contatto
+     * 
      * 
      * @param[in] mail1 Questa stringa rappresenta il primo indirizzo mail del contatto 
      * @param[in] mail2 Questa stringa rappresenta il secondo indirizzo mail del contatto
