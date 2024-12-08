@@ -165,7 +165,7 @@ public class Contatto{
      * 
      * @param[in] tel1 Questa stringa rappresenta il primo numero di telefono del contatto.
      * @param[in] tel2 Questa stringa rappresenta il secondo numero di telefono del contatto.
-     * @param [in] tel3 Questa stringa rappresenta il terzo numero di telefono.
+     * @param[in] tel3 Questa stringa rappresenta il terzo numero di telefono.
      * 
      */
     public void setTel(String tel1,String tel2,String tel3){

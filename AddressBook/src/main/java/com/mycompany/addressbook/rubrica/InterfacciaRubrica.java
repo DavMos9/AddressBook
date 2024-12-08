@@ -20,9 +20,9 @@ public interface InterfacciaRubrica {
     /**
      * @brief Aggiunge un contatto alla rubrica.
      *
-     * Tale metodo accetta in input un parametro di tipo Contatto e permette l'aggiunta di un nuovo contatto nella rubrica. 
+     * Tale metodo accetta in ingresso un parametro di tipo Contatto e permette l'aggiunta di un nuovo contatto nella rubrica.
      *
-     *@pre Per aggiungere un contatto è condizione necessaria che almeno uno dei due campi nome o cognome sia valorizzato.
+     * @pre Per aggiungere un contatto è condizione necessaria che almeno uno dei due campi nome o cognome sia valorizzato.
      * 
      * @param c rappresenta il contatto da inserire
      */
@@ -31,9 +31,9 @@ public interface InterfacciaRubrica {
     /**
      * @brief Modifica un contatto all'interno della rubrica.
      * 
-     * Tale metodo accetta in input un parametro di tipo Contatto e permette la modifica dei valori dei campi di un contatto presente nella rubrica.  
+     * Tale metodo accetta in ingresso un parametro di tipo Contatto e permette la modifica dei valori dei campi di un contatto presente nella rubrica.
      *
-     * @pre Per far si che la modifica vada a buon fine, e' condizione necessaria che almeno uno dei due campi nome o cognome sia valorizzato.
+     * @pre Per far si che la modifica vada a buon fine, è condizione necessaria che almeno uno dei due campi nome o cognome sia valorizzato.
      * 
      * @param c rappresenta il contatto su cui effettuare le modifiche.
      */
@@ -42,7 +42,7 @@ public interface InterfacciaRubrica {
     /**
      *@brief Elimina un contatto all'interno della rubrica.
      * 
-     * Tale metodo accetta in input un parametro di tipo Contatto e permette di eliminare (rimozione fisica) un contatto presente nella rubrica.
+     * Tale metodo accetta in ingresso un parametro di tipo Contatto e permette di eliminare (rimozione fisica) un contatto presente nella rubrica.
      * 
      * @param c rappresenta il contatto da eliminare
      */
