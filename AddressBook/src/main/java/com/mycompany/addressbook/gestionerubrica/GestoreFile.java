@@ -4,6 +4,7 @@ import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 import com.mycompany.addressbook.rubrica.Rubrica;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class GestoreFile {
      *
      */
 
-    public static InterfacciaRubrica leggiFile(String nomefile){
+    public static InterfacciaRubrica leggiFile(String nomefile) throws FileNotFoundException{
          InterfacciaRubrica a = new Rubrica();         
         
         try(Scanner s = new Scanner(new BufferedReader(new FileReader(nomefile)))){

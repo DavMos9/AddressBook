@@ -5,11 +5,15 @@
  */
 package com.mycompany.addressbook.controllers;
 
+import com.mycompany.addressbook.App;
 import com.mycompany.addressbook.gestionerubrica.Contatto;
 import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 import com.mycompany.addressbook.rubrica.Rubrica;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.application.Platform.exit;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +24,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * @file RubricaController.java
@@ -111,7 +116,13 @@ public class RubricaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         
+        lista = FXCollections.observableArrayList(rubrica.getLista());
+        nomeClm.setCellValueFactory( new PropertyValueFactory("nome"));
+        cognomeClm.setCellValueFactory( new PropertyValueFactory("cognome"));
+
+        tableRubrica.setItems(lista);
+        
+        
     }    
 
     /**
@@ -163,7 +174,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void esciBtnAction(ActionEvent event) {
-      
+      exit();
     }
     /**
      * 
@@ -189,8 +200,9 @@ public class RubricaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void aggiungiContattoBtnAction(ActionEvent event) {
-       
+    private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
+        App.setRoot("AggiungiModifica");
+        lista.setAll(rubrica.getLista());
     }
     /**
      * 

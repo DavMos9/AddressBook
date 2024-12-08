@@ -78,7 +78,8 @@ public class AggiungiModificaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void confermaBtnAction(ActionEvent event) {
+    private void confermaBtnAction(ActionEvent event){
+        
     }
     /**
      * 
