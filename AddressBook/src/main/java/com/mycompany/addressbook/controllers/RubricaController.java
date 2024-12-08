@@ -25,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Popup;
 
 /**
  * @file RubricaController.java
@@ -150,7 +151,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void scriviFileBtnAction(ActionEvent event) {
-    
+        
     }
     /**
      * @brief permette di salvare le modifiche su un file e di chiudere l'applicazione.
@@ -215,7 +216,11 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void eliminaContattoBtnAction(ActionEvent event) {
-        
+        int selectedIndex = tableRubrica.getSelectionModel().getSelectedIndex();
+        if(selectedIndex == -1){
+            //mostrare un popup di avvertenza
+        }
+        rubrica.eliminaContatto(lista.remove(selectedIndex));
     }
     /**
      * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
@@ -240,7 +245,8 @@ public class RubricaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void salvataggioManualeBtnAction(ActionEvent event) {
+    private void salvataggioManualeBtnAction(ActionEvent event){
+        
     }
     
 }
