@@ -27,9 +27,9 @@ public class Comparatore implements Comparator<Contatto>{
      */
     @Override
     public int compare(Contatto c1, Contatto c2) {
-
-        return 0;
+        if(c1.getCognome().equalsIgnoreCase(c2.getCognome()))//se i cognomi sono uguali confronto i nomi altrimenti confronti i cognomi (considevo anche maiuscole e minuscole)
+            return c1.getNome().compareToIgnoreCase(c2.getNome());
+        return c1.getCognome().compareToIgnoreCase(c2.getCognome());
     }
 
-    
 }

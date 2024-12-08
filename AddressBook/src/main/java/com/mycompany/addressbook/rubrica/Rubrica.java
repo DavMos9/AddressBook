@@ -37,7 +37,7 @@ public class Rubrica implements InterfacciaRubrica{
      * 
      */
     public Rubrica(){
-        
+        lista = new ArrayList<>();
     }
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::getLista() "getLista".
@@ -45,8 +45,7 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public List<Contatto> getLista() {
-
-        return null;
+        return lista;
     }
     /**
      * 
@@ -54,7 +53,8 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public void aggiungiContatto(Contatto c) {
-        
+        assert c.getNome().equals("")&&c.getCognome().equals("");
+        lista.add(c);
     }
     
     /**
@@ -63,6 +63,7 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public void modificaContatto(Contatto c){
+        
     }
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto".
@@ -70,6 +71,7 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public void eliminaContatto(Contatto c) {
+        lista.remove(c);
     }
     /**
      * 
