@@ -202,7 +202,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
-        App.setRoot("AggiungiModifica");
+        App.setRootAndGetLoader("AggiungiModifica");
         lista.setAll(rubrica.getLista());
     }
     /**

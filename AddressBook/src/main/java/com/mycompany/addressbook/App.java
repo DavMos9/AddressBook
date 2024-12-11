@@ -49,8 +49,10 @@ public class App extends Application {
      * @throws IOException Se il file FXML non può essere caricato.
      */
 
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static FXMLLoader setRootAndGetLoader(String fxml) throws IOException{
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        scene.setRoot(loader.load());
+        return loader; // Ritorna il loader per ottenere il controller
     }
 
 
@@ -64,7 +66,7 @@ public class App extends Application {
      * @return Il nodo radice del layout caricato.
      * @throws IOException Se il file FXML non può essere caricato.
      */
-    private static Parent loadFXML(String fxml) throws IOException {
+    private Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
