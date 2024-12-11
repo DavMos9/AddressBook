@@ -1,5 +1,6 @@
 package com.mycompany.addressbook.rubrica;
 
+import com.mycompany.addressbook.gestionerubrica.Comparatore;
 import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 import com.mycompany.addressbook.gestionerubrica.Contatto;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Rubrica implements InterfacciaRubrica{
     /**
      * @brief Lista usata per permettere di gestire tutti i contatti.
      */
-    private List<Contatto> lista;
+    private List<Contatto> listaContatti;
     
     
     /**
@@ -37,33 +38,39 @@ public class Rubrica implements InterfacciaRubrica{
      * 
      */
     public Rubrica(){
-        lista = new ArrayList<>();
+        listaContatti = new ArrayList<>();
     }
     /**
-     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::getLista() "getLista".
+     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::getCollezione() "getCollezione".
      * 
      */
     @Override
     public List<Contatto> getCollezione() {
-        return lista;
+        return listaContatti;
     }
     /**
      * 
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto".
+     * 
+     * la precondizione è già soddisfatta nel Costruttore di Contatto.
      */
     @Override
     public void aggiungiContatto(Contatto c) {
-        assert c.getNome().equals("")&&c.getCognome().equals("");
-        lista.add(c);
+        
+        listaContatti.add(c);
     }
     
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
      *  
+     * la precondizione è già soddisfatta nel Costruttore di Contatto.
      */
     @Override
     public void modificaContatto(Contatto before,Contatto after){
-        
+        before.setNome(after.getNome());
+        before.setCognome(after.getCognome());
+        before.setTel(after.getTel()[0], after.getTel()[1], after.getTel()[2]);
+        before.setMail(after.getMail()[0], after.getMail()[1], after.getMail()[2]);
     }
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto".
@@ -71,13 +78,11 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public void eliminaContatto(Contatto c) {
-        lista.remove(c);
+        listaContatti.remove(c);
     }
-
+    
     @Override
     public void ordina(){
-
+        listaContatti.sort(new Comparatore());
     }
-
-    
 }

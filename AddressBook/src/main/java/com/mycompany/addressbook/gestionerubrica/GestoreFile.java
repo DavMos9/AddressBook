@@ -29,20 +29,22 @@ public class GestoreFile {
      * Questo metodo accede al file specificato, legge i dati e li converte
      * in un'istanza di `InterfacciaRubrica`.
      *
+     * @pre il file, da cui leggere, esiste.
+     * 
      * @param nomefile Il nome del file da cui leggere i dati.
      * @return Un'istanza di `InterfacciaRubrica` contenente i dati letti.
      *         Se il file non esiste restituisce un errore.
      *
      */
 
-    public static InterfacciaRubrica leggiFile(String nomefile) throws FileNotFoundException{
-         InterfacciaRubrica a = new Rubrica();         
+    public static InterfacciaRubrica leggiFile(String nomefile){
+         InterfacciaRubrica rubrica = new Rubrica();         
         
         try(Scanner s = new Scanner(new BufferedReader(new FileReader(nomefile)))){
             
             
             if(s.nextLine() == null){ 
-                return a;
+                return rubrica;
             }
             
             s.useDelimiter("[;\n]"); 
@@ -53,20 +55,23 @@ public class GestoreFile {
                 
                 String nome = s.next();
                 String cognome = s.next();
-                String num1 = s.next();
-		String num2 = s.next();
-		String num3 = s.next();
+                String tel1 = s.next();
+		String tel2 = s.next();
+		String tel3 = s.next();
                 String mail1 = s.next();
                 String mail2 = s.next();
                 String mail3 = s.next();
                 
                 
-                Contatto st = new Contatto(nome,cognome,num1,num2,num3,mail1,mail2,mail3);
-                a.aggiungiContatto(st);
+                Contatto contatto = new Contatto(nome,cognome,tel1,tel2,tel3,mail1,mail2,mail3);
+                rubrica.aggiungiContatto(contatto);
             }
+        }catch(FileNotFoundException ex){
+            assert false; 
+            return rubrica;
         }
         
-        return a;
+        return rubrica;
     }
 
     /**
@@ -76,14 +81,16 @@ public class GestoreFile {
      * Questo metodo salva i dati della rubrica corrente nel file specificato.
      * Se il file non esiste, viene creato.
      *
+     * @pre la rubrica esiste
      * @param nomefile Il nome del file in cui scrivere i dati.
      */
 
     public void scriviFile(String nomefile,InterfacciaRubrica rubrica) throws IOException{
+        assert rubrica!=null;
         try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
             
-            pw.println("NOME;COGNOME;CODICE FISCALE;MATRICOLA;VOTO MEDIO");             
-            for(Contatto c : rubrica.getLista()){
+            pw.println("NOME;COGNOME;TEL1;TEL2;TEL3;MAIL1;MAIL2;MAIL3");             
+            for(Contatto c : rubrica.getCollezione()){
                 
                 pw.append(c.getNome());
                 pw.append(';');
