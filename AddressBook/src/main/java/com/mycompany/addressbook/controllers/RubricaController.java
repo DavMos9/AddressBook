@@ -62,12 +62,6 @@ public class RubricaController implements Initializable {
     @FXML
     private Label labelCognomeView;
     @FXML
-    private Label labelNum1View;
-    @FXML
-    private Label labelNum2View;
-    @FXML
-    private Label labelNum3View;
-    @FXML
     private Label labelMail1View;
     @FXML
     private Label labelMail2View;
@@ -79,6 +73,14 @@ public class RubricaController implements Initializable {
     private Button modificaBtn;
     @FXML
     private MenuItem salvataggioManualeBtn;
+    @FXML
+    private MenuItem documentazioneBtn;
+    @FXML
+    private Label labelTel1View;
+    @FXML
+    private Label labelTel2View;
+    @FXML
+    private Label labelTel3View;
     /**
      * @brief attributo usato per istanziare un oggetto di tipo InterfacciaRubrica
      */
@@ -98,6 +100,7 @@ public class RubricaController implements Initializable {
     public static InterfacciaRubrica getInterfacciaRubrica(){
         return rubrica;
     }
+    
     
     
     
@@ -178,20 +181,6 @@ public class RubricaController implements Initializable {
       exit();
     }
     /**
-     * 
-     * @brief permette di ricercare un contatto all'interno della Rubrica.
-     * 
-     *
-     * @post viene mostrato il risultato della ricerca.
-     * 
-     * @param[in] event è un parametro che cattura l'evento legato all'azione del popolamento del TextField fieldRicerca,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
-     */
-    @FXML
-    private void ricercaAction(ActionEvent event) {
-       
-    }
-    /**
      * @brief permette di aggiungere un contatto in Rubrica e di visualizzarlo al suo interno, grazie al metodo \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto" .
      * 
      * Permette di visualizzare il contatto aggiunto all'interno della rubrica.
@@ -202,8 +191,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
-        App.setRootAndGetLoader("AggiungiModifica");
-        lista.setAll(rubrica.getLista());
+        
     }
     /**
      * 
@@ -216,11 +204,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void eliminaContattoBtnAction(ActionEvent event) {
-        int selectedIndex = tableRubrica.getSelectionModel().getSelectedIndex();
-        if(selectedIndex == -1){
-            //mostrare un popup di avvertenza
-        }
-        rubrica.eliminaContatto(lista.remove(selectedIndex));
+        
     }
     /**
      * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
@@ -247,6 +231,10 @@ public class RubricaController implements Initializable {
     @FXML
     private void salvataggioManualeBtnAction(ActionEvent event){
         
+    }
+
+    @FXML
+    private void documentazioneBtnAction(ActionEvent event) {
     }
     
 }
