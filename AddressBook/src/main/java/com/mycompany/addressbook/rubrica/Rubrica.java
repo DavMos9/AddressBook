@@ -44,7 +44,7 @@ public class Rubrica implements InterfacciaRubrica{
      * 
      */
     @Override
-    public List<Contatto> getLista() {
+    public List<Contatto> getCollezione() {
         return lista;
     }
     /**
@@ -62,7 +62,7 @@ public class Rubrica implements InterfacciaRubrica{
      *  
      */
     @Override
-    public void modificaContatto(Contatto c){
+    public void modificaContatto(Contatto before,Contatto after){
         
     }
     /**
@@ -73,16 +73,11 @@ public class Rubrica implements InterfacciaRubrica{
     public void eliminaContatto(Contatto c) {
         lista.remove(c);
     }
-    /**
-     * 
-     * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::ricercaContatto(Contatto c) "ricercaContatto".
-     *  
-     */
-    @Override
-    public Contatto ricercaContatto(Contatto c) {
 
-        return c;
+    @Override
+    public void ordina(){
+
     }
-    
+
     
 }
