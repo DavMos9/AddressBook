@@ -130,9 +130,26 @@ public class Contatto{
         return mail;
     }
 
-    
-     
-/**
+
+    /**
+     *
+     *
+     * @brief metodo che permette di impostare il nome del contatto.
+     *
+     *
+     * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso
+     *
+     * @param[in] nome Una stringa che rappresenta il nome del contatto.
+     **/
+    public void setNome(String nome) {
+        this.nome = nome;
+
+        assert this.nome.equals(nome);
+    }
+
+
+
+    /**
  *
  * @brief metodo che permette di impostare il cognome del contatto.
  *
