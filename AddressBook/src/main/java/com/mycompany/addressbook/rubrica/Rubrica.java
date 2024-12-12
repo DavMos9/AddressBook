@@ -80,7 +80,22 @@ public class Rubrica implements InterfacciaRubrica{
     public void eliminaContatto(Contatto c) {
         listaContatti.remove(c);
     }
-    
+
+    @Override
+    public List<Contatto> ricerca(String query){
+        List<Contatto> result = new ArrayList<>();
+
+        for (Contatto contatto : this.getCollezione()){
+            if (contatto.getCognome().toLowerCase().contains(query.toLowerCase())) {
+                result.add(contatto);
+            }else if (contatto.getNome().toLowerCase().contains(query.toLowerCase())) {
+                result.add(contatto);
+            }
+        }
+
+        return result;
+    }
+
     @Override
     public void ordina(){
         listaContatti.sort(new Comparatore());

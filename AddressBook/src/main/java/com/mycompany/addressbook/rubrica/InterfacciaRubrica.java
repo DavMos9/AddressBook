@@ -49,8 +49,6 @@ public interface InterfacciaRubrica {
     void eliminaContatto(Contatto c);
 
 
-
-
     /**
      *
      * @brief Restituisce la lista dei contatti.
@@ -61,6 +59,8 @@ public interface InterfacciaRubrica {
      * @return Collection una Collezione di Contatti.
      */
     Collection<Contatto> getCollezione();
+
+    Collection<Contatto> ricerca(String text);
 
     void ordina();
 }

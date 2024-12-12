@@ -89,7 +89,7 @@ public class Contatto{
     }
     
     
-     /**
+    /**
      * 
      * @brief Restituisce il cognome del contatto
      * 
@@ -103,7 +103,7 @@ public class Contatto{
         return cognome;
     }
     
-      /**
+    /**
      * 
      * @brief Restituisce i numeri di telefono del contatto
      * 
@@ -132,63 +132,62 @@ public class Contatto{
 
     
      
-    
-    /**
-     * 
-     * 
-     * @brief metodo che permette di impostare il nome del contatto.
-     * 
-     * @param[in] nome Una stringa che rappresenta il nome del contatto.
-     * 
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    
-    /**
-     * 
-     * @brief metodo che permette di impostare il cognome del contatto.
-     * 
-     * @param[in] cognome Una stringa che rappresenta il cognome del contatto 
-     * 
-     * 
-     * */
-    
+/**
+ *
+ * @brief metodo che permette di impostare il cognome del contatto.
+ *
+ * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso
+ *
+ * @param[in] cognome Una stringa che rappresenta il cognome del contatto
+ *
+ *
+ */
+
     public void setCognome(String cognome){
         this.cognome = cognome;
+
+        assert this.cognome.equals(cognome);
     }
-    
+
     /**
-     * 
+     *
      * @brief metodo che permette di impostare i numeri di telefono del contatto.
-     * 
+     *
+     * @post il valore dei campi tel dell'oggetto vengono aggiornati con i parametri di ingresso.
+     *
      * @param[in] tel1 Questa stringa rappresenta il primo numero di telefono del contatto.
      * @param[in] tel2 Questa stringa rappresenta il secondo numero di telefono del contatto.
      * @param[in] tel3 Questa stringa rappresenta il terzo numero di telefono.
-     * 
+     *
      */
     public void setTel(String tel1,String tel2,String tel3){
         this.tel[0] = tel1;
         this.tel[1]=tel2;
         this.tel[2]=tel3;
+
+        assert this.tel[0].equals(tel1);
+        assert this.tel[1].equals(tel2);
+        assert this.tel[2].equals(tel3);
     }
-    
+
     /**
-     * 
      * @brief metodo che permette di impostare le email del contatto.
-     * 
-     * 
-     * 
-     * @param[in] mail1 Questa stringa rappresenta il primo indirizzo mail del contatto 
+     *
+     * @post il valore dei campi mail dell'oggetto vengono aggiornati con i parametri di ingresso.
+     *
+     * @param[in] mail1 Questa stringa rappresenta il primo indirizzo mail del contatto
      * @param[in] mail2 Questa stringa rappresenta il secondo indirizzo mail del contatto
      * @param[in] mail3 Questa stringa rappresenta il terzo indirizzo mail del contatto
      */
-    
+
     public void setMail(String mail1,String mail2,String mail3){
         mail[0]=mail1;
         mail[1]=mail2;
         mail[2]=mail3;
+
+        assert this.mail[0].equals(mail1);
+        assert this.mail[1].equals(mail2);
+        assert this.mail[2].equals(mail3);
     }
-    
+
 }
