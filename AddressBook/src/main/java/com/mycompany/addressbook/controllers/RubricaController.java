@@ -10,8 +10,8 @@ import com.mycompany.addressbook.gestionerubrica.Contatto;
 import com.mycompany.addressbook.gestionerubrica.GestoreFile;
 import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 import com.mycompany.addressbook.rubrica.Rubrica;
-
-import java.awt.*;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -22,14 +22,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Popup;
+import javafx.stage.FileChooser;
 
 /**
  * @file RubricaController.java
@@ -200,7 +202,19 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void leggiFileBtnAction(ActionEvent event) {
-     
+        FileChooser fileChooser = new FileChooser(); //classe che permette l'apertura di una finestra
+        fileChooser.setTitle("Open Resource File"); //nome della finestra
+        
+        
+        File temp = fileChooser.showOpenDialog(fieldRicerca.getParent().getScene().getWindow()); 
+        if(temp == null){ 
+            return;
+        }
+        
+        rubrica = GestoreFile.leggiFile(temp.getPath());
+        getInterfacciaRubrica().ordina();
+        listaOss.setAll(getInterfacciaRubrica().getCollezione());
+        
     }
     /**
      * @brief permette la scrittura su file della Rubrica, grazie al metodo \ref GestoreFile::ScriviFile(String nomefile) "ScriviFile" di GestoreFile.
@@ -213,8 +227,17 @@ public class RubricaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void scriviFileBtnAction(ActionEvent event) {
+    private void scriviFileBtnAction(ActionEvent event) throws IOException{
+        FileChooser fileChooser = new FileChooser(); //classe che permette l'apertura di una finestra
+        fileChooser.setTitle("Save Resource File");
         
+        File temp = fileChooser.showSaveDialog(fieldRicerca.getParent().getScene().getWindow());
+        
+        if(temp == null){ 
+            return;
+        }
+        
+        gestoreFile.scriviFile(temp.getPath(), getInterfacciaRubrica());
     }
     /**
      * @brief permette di salvare le modifiche su un file e di chiudere l'applicazione.
@@ -254,20 +277,42 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
+        FXMLLoader x=App.setRootAndGetLoader("AggiungiModifica");
+        setAggiungiModificaController(x.getController());
+        getAggiungiModificaController().setField(null);
         
+        listaOss.setAll(rubrica.getCollezione());
     }
     /**
      * 
      * @brief permette di rimuovere e non visualizzare più un Contatto dalla Rubrica mostrata, grazie al metodo in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto"
      * 
      * @pre ricercare il contatto da voler eliminare.
-     * @post contatto non più presente e visualizzabile nella rubrica.
+     * @post contatto non è più presente e visualizzabile nella rubrica.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto eliminaBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void eliminaContattoBtnAction(ActionEvent event) {
+    private void eliminaContattoBtnAction(ActionEvent event){
+        int selectedIndex = tableRubrica.getSelectionModel().getSelectedIndex();
+        if(selectedIndex == -1){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Attenzione");
+            alert.setHeaderText("seleziona un contatto");
+            alert.showAndWait();
+            assert selectedIndex != -1;
+        }else{
         
+            Alert alert1 = new Alert(AlertType.CONFIRMATION);
+            alert1.setTitle("Attenzione");
+            alert1.setHeaderText("Il Contatto verrà Eliminato");
+            alert1.showAndWait();
+            if(alert1.getResult().getText().equals("OK")){
+                rubrica.eliminaContatto(listaOss.remove(selectedIndex));
+            }
+            
+            tableRubrica.getSelectionModel().clearSelection();
+        }
     }
     /**
      * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
@@ -280,8 +325,25 @@ public class RubricaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void modificaContattoBtnAction(ActionEvent event) {
-        
+    private void modificaContattoBtnAction(ActionEvent event) throws IOException{
+        Contatto selected = tableRubrica.getSelectionModel().getSelectedItem();
+
+
+        if(selected == null){
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Attenzione");
+            alert.setHeaderText("seleziona un contatto");
+            alert.showAndWait();
+            assert selected != null;
+        }else{
+            FXMLLoader x = App.setRootAndGetLoader("AggiungiModifica");
+            setAggiungiModificaController(x.getController());
+            
+            getAggiungiModificaController().setField(selected);
+            
+            tableRubrica.getSelectionModel().clearSelection(); 
+           
+        }
     }
     /**
      * @brief permette il Salvataggio Manuale della Rubrica durante la sessione, grazie all'uso del metodo \ref GestoreFile::scriviFile(String nomefile) "scriviFile" in GestoreFile.
@@ -300,7 +362,6 @@ public class RubricaController implements Initializable {
     private void documentazioneBtnAction(ActionEvent event) throws URISyntaxException, IOException {
         if(Desktop.isDesktopSupported()){
             Desktop wind = Desktop.getDesktop();
-            //wind.browse("");
             wind.browse(new URI("https://github.com/DavMos9/AddressBook.git"));
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);

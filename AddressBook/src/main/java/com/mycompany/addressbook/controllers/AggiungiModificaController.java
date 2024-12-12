@@ -1,10 +1,14 @@
 package com.mycompany.addressbook.controllers;
 
+import com.mycompany.addressbook.App;
+import com.mycompany.addressbook.gestionerubrica.Contatto;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -44,6 +48,14 @@ public class AggiungiModificaController implements Initializable {
     @FXML
     private Button annullaBtn;
 
+    private Contatto contatto;
+    
+    public Contatto getContatto(){
+        return this.contatto;
+    }
+    public void setContatto(Contatto c){
+        contatto = c;
+    }
     /**
      *  
      * @brief è un Metodo che permette di inizializzare il controller legato al file della Scena AggiungiModifica.fxml.
@@ -63,6 +75,29 @@ public class AggiungiModificaController implements Initializable {
         
         
     }
+    
+    
+    public void setField(Contatto temp){
+        if(temp == null){ // null -> aggiuntaContatto
+            labelTitle.setText("Aggiungi Nuovo Contatto");
+            
+        }else{  // notNull -> modificaContatto
+            labelTitle.setText("Modifica Contatto");
+            nomeField.setText(temp.getNome());
+            cognomeField.setText(temp.getCognome());
+            tel1Field.setText(temp.getTel()[0]);
+            tel2Field.setText(temp.getTel()[1]);
+            tel3Field.setText(temp.getTel()[2]);
+            mail1Field.setText(temp.getMail()[0]);
+            mail2Field.setText(temp.getMail()[1]);
+            mail3Field.setText(temp.getMail()[2]);
+            
+        }
+        
+        setContatto(temp);
+        
+    }
+    
     /**
      * 
      * @brief è il metodo legato all'azione del click del bottone denominato confermaBtn nella Scena.
@@ -72,14 +107,43 @@ public class AggiungiModificaController implements Initializable {
      * 
      * @pre l'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
      * 
-     * @post viene modificato il contatto selezionato, oppure viene aggiunto il nuovo contatto alla rubrica.
+     * @post viene modificato il contatto selezionato(garantito dalle post condizioni dei metodi set nella classe Contatto), oppure viene aggiunto il nuovo contatto alla rubrica.
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto confermaBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void confermaBtnAction(ActionEvent event){
-        
+    private void confermaBtnAction(ActionEvent event) throws IOException{
+        if(getContatto() == null){ // null -> aggiungiContatto
+            //il controllo della precondizione che nome o cognome sia valorizzato viene effettuato nel costruttore di Contatto.
+            
+            if(nomeField.getText().equals("") && cognomeField.getText().equals("")){ //mostra popup per precondizione
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Attenzione");
+                alert.setHeaderText("il contatto deve presentare almeno il nome o il cognome");
+                alert.showAndWait();
+
+            }else{
+                Contatto c = new Contatto(nomeField.getText(),cognomeField.getText(),tel1Field.getText(),tel2Field.getText(),tel3Field.getText(),mail1Field.getText(),mail2Field.getText(),mail3Field.getText());
+                RubricaController.getInterfacciaRubrica().aggiungiContatto(c);
+                RubricaController.getInterfacciaRubrica().ordina();
+                App.setRootAndGetLoader("Rubrica");
+                assert RubricaController.getInterfacciaRubrica().getCollezione().contains(c);
+            }
+        }else{
+            if(nomeField.getText().equals("") && cognomeField.getText().equals("")){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Attenzione");
+                alert.setHeaderText("il contatto modificato deve presentare almeno il nome o il cognome");
+                alert.showAndWait();
+            }else{
+                Contatto temp = new Contatto(nomeField.getText(),cognomeField.getText(),tel1Field.getText(),tel2Field.getText(),tel3Field.getText(),mail1Field.getText(),mail2Field.getText(),mail3Field.getText());
+                RubricaController.getInterfacciaRubrica().modificaContatto(getContatto(), temp);
+                RubricaController.getInterfacciaRubrica().ordina();
+
+                App.setRootAndGetLoader("Rubrica");
+            }
+        }
     }
     /**
      * 
@@ -95,7 +159,8 @@ public class AggiungiModificaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
-    private void annullaBtnAction(ActionEvent event) {
+    private void annullaBtnAction(ActionEvent event) throws IOException{
+        App.setRootAndGetLoader("Rubrica");
     }
     
 }
