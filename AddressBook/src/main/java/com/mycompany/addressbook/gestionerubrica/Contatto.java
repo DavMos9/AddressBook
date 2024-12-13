@@ -58,7 +58,7 @@ public class Contatto{
      */
     
     public Contatto(String nome,String cognome,String tel1,String tel2,String tel3,String mail1,String mail2,String mail3){
-        assert nome=="" && cognome==""; //valuto la precondizione
+        assert !nome.equals("") || !cognome.equals(""); //valuto la precondizione
         this.nome=nome;
         this.cognome=cognome;
         this.tel=new String[3];
@@ -149,7 +149,7 @@ public class Contatto{
 
 
 
-    /**
+/**
  *
  * @brief metodo che permette di impostare il cognome del contatto.
  *
