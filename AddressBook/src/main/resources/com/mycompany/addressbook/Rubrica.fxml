@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -91,6 +93,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelNomeView">
                                        <padding>
@@ -108,6 +113,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelCognomeView">
                                        <padding>
@@ -125,6 +133,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelTel1View">
                                        <padding>
@@ -142,6 +153,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelTel2View">
                                        <padding>
@@ -159,6 +173,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelTel3View">
                                        <padding>
@@ -176,6 +193,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelMail1View">
                                        <padding>
@@ -193,6 +213,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelMail2View">
                                        <padding>
@@ -210,6 +233,9 @@
                                        <HBox.margin>
                                           <Insets left="40.0" />
                                        </HBox.margin>
+                                       <effect>
+                                          <Blend mode="DARKEN" />
+                                       </effect>
                                     </Label>
                                     <Label fx:id="labelMail3View">
                                        <padding>
