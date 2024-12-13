@@ -81,6 +81,16 @@ public class Rubrica implements InterfacciaRubrica{
         listaContatti.remove(c);
     }
 
+    /** RIVEDERE
+     *
+     * @brief permette di ricercare un contatto all'interno della Rubrica.
+     *
+     *
+     * @post viene mostrato il risultato della ricerca.
+     *
+     * @param[in] event è un parametro che cattura l'evento legato all'azione del popolamento del TextField fieldRicerca,
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo.
+     */
     @Override
     public List<Contatto> ricerca(String query){
         List<Contatto> result = new ArrayList<>();
