@@ -162,33 +162,9 @@ public class RubricaController implements Initializable {
         });
 
         fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
-            filtraContatti(newValue);
+            listaOss.setAll((rubrica.ricerca(newValue)));
         });
         listaOss.setAll(rubrica.getCollezione());
-    }
-    /** RIVEDERE
-     *
-     * @brief permette di ricercare un contatto all'interno della Rubrica.
-     *
-     *
-     * @post viene mostrato il risultato della ricerca.
-     *
-     * @param[in] event è un parametro che cattura l'evento legato all'azione del popolamento del TextField fieldRicerca,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo.
-     */
-    private void filtraContatti(String query){
-
-        InterfacciaRubrica temp = new Rubrica();
-
-        for (Contatto contatto : rubrica.getCollezione()){
-            if (contatto.getCognome().toLowerCase().contains(query.toLowerCase())) {
-                temp.aggiungiContatto(contatto);
-            }else if (contatto.getNome().toLowerCase().contains(query.toLowerCase())) {
-                temp.aggiungiContatto(contatto);
-            }
-        }
-
-        listaOss.setAll(temp.getCollezione());
     }
 
     /**
