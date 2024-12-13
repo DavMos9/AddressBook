@@ -59,6 +59,7 @@ public class AggiungiModificaController {
     
     
     
+    
     public void setField(Contatto temp){
         if(temp == null){ // null -> aggiuntaContatto
             labelTitle.setText("Aggiungi Nuovo Contatto");
