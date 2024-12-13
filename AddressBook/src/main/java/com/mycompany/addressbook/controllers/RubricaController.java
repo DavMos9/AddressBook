@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.addressbook.controllers;
 
 import com.mycompany.addressbook.App;
@@ -147,7 +142,17 @@ public class RubricaController implements Initializable {
         tableRubrica.setItems(listaOss);
 
 
+        visualizzaContatto();
+        
 
+        fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
+            listaOss.setAll((rubrica.ricerca(newValue)));
+            tableRubrica.getSelectionModel().clearSelection();
+        });
+        listaOss.setAll(rubrica.getCollezione());
+    }
+    
+    private void visualizzaContatto(){
         tableRubrica.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue != null){
                 labelNomeView.setText(newValue.getNome());
@@ -160,13 +165,14 @@ public class RubricaController implements Initializable {
                 labelMail3View.setText(newValue.getMail()[2]);
             }
         });
-
-        fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
-            listaOss.setAll((rubrica.ricerca(newValue)));
-        });
-        listaOss.setAll(rubrica.getCollezione());
+        
     }
-
+    private void alert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Attenzione");
+        alert.setHeaderText("Seleziona un contatto");
+        alert.showAndWait();
+    }
     /**
      * @brief permette la lettura di un file, grazie al metodo \ref GestoreFile::leggiFile(String nomefile) "leggiFile" di GestoreFile.
      * 
@@ -272,13 +278,9 @@ public class RubricaController implements Initializable {
     private void eliminaContattoBtnAction(ActionEvent event){
         int selectedIndex = tableRubrica.getSelectionModel().getSelectedIndex();
         if(selectedIndex == -1){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Attenzione");
-            alert.setHeaderText("seleziona un contatto");
-            alert.showAndWait();
+            alert();
             assert selectedIndex != -1;
         }else{
-        
             Alert alert1 = new Alert(AlertType.CONFIRMATION);
             alert1.setTitle("Attenzione");
             alert1.setHeaderText("Il Contatto verrà Eliminato");
@@ -290,6 +292,8 @@ public class RubricaController implements Initializable {
             tableRubrica.getSelectionModel().clearSelection();
         }
     }
+    
+    
     /**
      * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
      * 
@@ -304,12 +308,8 @@ public class RubricaController implements Initializable {
     private void modificaContattoBtnAction(ActionEvent event) throws IOException{
         Contatto selected = tableRubrica.getSelectionModel().getSelectedItem();
 
-
         if(selected == null){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Attenzione");
-            alert.setHeaderText("seleziona un contatto");
-            alert.showAndWait();
+            alert();
             assert selected != null;
         }else{
             FXMLLoader x = App.setRootAndGetLoader("AggiungiModifica");

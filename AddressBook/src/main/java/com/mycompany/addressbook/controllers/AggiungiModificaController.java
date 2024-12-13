@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
  * 
  * @author Quaranta Davide 
  */
-public class AggiungiModificaController implements Initializable {
+public class AggiungiModificaController/* implements Initializable*/ {
 
     @FXML
     private Label labelTitle;
@@ -58,7 +58,7 @@ public class AggiungiModificaController implements Initializable {
     }
     /**
      *  
-     * @brief è un Metodo che permette di inizializzare il controller legato al file della Scena AggiungiModifica.fxml.
+     * 
      *
      * 
      * 
@@ -69,12 +69,12 @@ public class AggiungiModificaController implements Initializable {
      *
      * @param[in] rb è un parametro che gestisce le risorse utilizzate per localizzare l'oggetto radice,
      * oppure null se l'oggetto radice non è stato localizzato. 
-     */
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         
-    }
+    }*/
     
     
     public void setField(Contatto temp){
@@ -118,11 +118,7 @@ public class AggiungiModificaController implements Initializable {
             //il controllo della precondizione che nome o cognome sia valorizzato viene effettuato nel costruttore di Contatto.
             
             if(nomeField.getText().equals("") && cognomeField.getText().equals("")){ //mostra popup per precondizione
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Attenzione");
-                alert.setHeaderText("il contatto deve presentare almeno il nome o il cognome");
-                alert.showAndWait();
-
+                alert();
             }else{
                 Contatto c = new Contatto(nomeField.getText(),cognomeField.getText(),tel1Field.getText(),tel2Field.getText(),tel3Field.getText(),mail1Field.getText(),mail2Field.getText(),mail3Field.getText());
                 RubricaController.getInterfacciaRubrica().aggiungiContatto(c);
@@ -132,10 +128,7 @@ public class AggiungiModificaController implements Initializable {
             }
         }else{
             if(nomeField.getText().equals("") && cognomeField.getText().equals("")){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Attenzione");
-                alert.setHeaderText("il contatto modificato deve presentare almeno il nome o il cognome");
-                alert.showAndWait();
+                alert();
             }else{
                 Contatto temp = new Contatto(nomeField.getText(),cognomeField.getText(),tel1Field.getText(),tel2Field.getText(),tel3Field.getText(),mail1Field.getText(),mail2Field.getText(),mail3Field.getText());
                 RubricaController.getInterfacciaRubrica().modificaContatto(getContatto(), temp);
@@ -144,6 +137,13 @@ public class AggiungiModificaController implements Initializable {
                 App.setRootAndGetLoader("Rubrica");
             }
         }
+    }
+    
+    private void alert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Attenzione");
+        alert.setHeaderText("il contatto deve presentare almeno il nome o il cognome");
+        alert.showAndWait();
     }
     /**
      * 
