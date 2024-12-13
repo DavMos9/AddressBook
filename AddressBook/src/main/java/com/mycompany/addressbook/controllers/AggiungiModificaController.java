@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
  * 
  * @author Quaranta Davide 
  */
-public class AggiungiModificaController/* implements Initializable*/ {
+public class AggiungiModificaController {
 
     @FXML
     private Label labelTitle;
@@ -56,25 +56,7 @@ public class AggiungiModificaController/* implements Initializable*/ {
     public void setContatto(Contatto c){
         contatto = c;
     }
-    /**
-     *  
-     * 
-     *
-     * 
-     * 
-     * @param[in] url è un parametro al quale viene passato il path relativo della Scena che viene mostrata.
-     * Nel nostro caso quindi rappresenterà il path del File AggiungiModifica.fxml a cui si associa tale Controller.
-     * Altrimenti, in caso di posizione non nota, avrà valore null.
-     * 
-     *
-     * @param[in] rb è un parametro che gestisce le risorse utilizzate per localizzare l'oggetto radice,
-     * oppure null se l'oggetto radice non è stato localizzato. 
-     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-        
-    }*/
+    
     
     
     
