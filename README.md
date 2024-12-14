@@ -15,7 +15,7 @@ A Java application developed with Maven that allows users to register their cont
 
 ### Installing
 
-* [Last release]([https://github.com/davidequaranta8]([https://github.com/DavMos9/AddressBook/](https://github.com/DavMos9/AddressBook/tree/main/AddressBook))
+* [Last release](https://github.com/DavMos9/AddressBook/blob/main/AddressBook/AddressBook.jar)
 
 ### Executing program
 
