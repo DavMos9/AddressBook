@@ -43,7 +43,7 @@ public interface InterfacciaRubrica {
     /**
      *@brief Elimina un contatto all'interno della rubrica.
      *
-     * Tale metodo accetta in input un parametro di tipo Contatto e permette di eliminare (rimozione fisica) un contatto presente nella rubrica.
+     * Tale metodo accetta in input un parametro di tipo Contatto e permette di eliminarlo della rubrica.
      *
      * @post il contatto non è più presente in rubrica
      * @param[in] c rappresenta il contatto da eliminare.

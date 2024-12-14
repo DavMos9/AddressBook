@@ -1,5 +1,5 @@
 NOME;COGNOME;TEL1;TEL2;TEL3;MAIL1;MAIL2;MAIL3
 Davide;Moscariello;101;201;301;aa@a.it;bb@b.it;cc@c.it
-Davide;Quaranta;0000000;111111111111;2222222222222;davide1@xxx.it;davide2@xxx.it;davide3@xxx.it
+Davide;Quaranta;0;1,11111E+11;2,22222E+12;davide1@xxx.it;davide2@xxx.it;davide3@xxx.it
 Ciro;Ronca;7777777;8888888;9999999;qq@q.it;ww@w.it;mm@m.it
 Domenico;Sessa;44444;5555555;666666;uu@u.it;tt@t.it;yy@y.it

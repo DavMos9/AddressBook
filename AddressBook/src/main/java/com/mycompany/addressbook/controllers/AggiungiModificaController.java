@@ -75,7 +75,7 @@ public class AggiungiModificaController {
      * 
      * Tale metodo inizializza il contenuto della label e il contenuto dei TextField, a seconda dell'operazione che bisogna effettuare (Aggiunta o Modifica di un Contatto). 
      * 
-     * @param temp 
+     * @param[in] temp contatto utilizzato per inizializzare il contenuto della Scena.
      */
     public void setField(Contatto temp){
         if(temp == null){

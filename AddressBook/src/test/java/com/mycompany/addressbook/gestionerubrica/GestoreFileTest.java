@@ -48,7 +48,7 @@ public class GestoreFileTest {
         // Esegui il metodo da testare
         rubrica =(Rubrica) GestoreFile.leggiFile("testGestoreFile.csv");
         
-        assertNotNull(rubrica);
+        
         // Controlla che siano stati letti 2 contatti
         assertEquals(2, rubrica.getCollezione().size());
 
@@ -95,14 +95,14 @@ public class GestoreFileTest {
         //leggo sul file per controllare che siano stati scritti correttamente
         InterfacciaRubrica rubrica2 = (Rubrica) gestoreFile.leggiFile("testGestoreFile.csv");
         
-        assertNotNull(rubrica2);
+        
         //verifico il numero di contatti scritti
         assertEquals(rubrica.getCollezione().size(),rubrica2.getCollezione().size());
         
         int i = 0;
         
         //verifico i contatti
-        for (Contatto c : rubrica.getCollezione()) {
+        for (Contatto c : rubrica2.getCollezione()) {
             if (i == 0) {
                 verificaContatto(c1, c);
             } else if (i == 1) {

@@ -33,8 +33,8 @@ import javafx.stage.FileChooser;
  * @class RubricaController
  * @brief Controller Scena principale.
  * 
- * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di ricerca, eliminazione o visualizzazione in dettaglio e non dei contatti elencati nella rubrica, 
- * e inoltre le operazioni di salvataggio o importazione di rubriche all'interno di essa.
+ * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di ricerca, eliminazione e visualizzazione delle informazioni dei contatti elencati nella rubrica, 
+ * e inoltre le operazioni di salvataggio e importazione di rubriche all'interno di essa.
  * 
  * @author Quaranta Davide 
  */
@@ -92,11 +92,11 @@ public class RubricaController implements Initializable {
      * 
      * Tale attributo viene inizializzato con il contenuto letto dal file di Default.
      */
-    private static InterfacciaRubrica rubrica = (Rubrica) GestoreFile.leggiFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv");
+    private static InterfacciaRubrica rubrica = (Rubrica) GestoreFile.leggiFile("default.csv");
 
     /**
      *
-     * @brief Lista osservabile che permette, grazie al collegamento con laTableView presente nella Scena, di visualizzare sulla Scena tutti i contatti inseriti e le operazioni che vengono effettuate su di essi.
+     * @brief Lista osservabile che permette, grazie al collegamento con la TableView presente nella Scena, di visualizzare sulla Scena tutti i contatti inseriti e le operazioni che vengono effettuate su di essi.
      */
     private ObservableList<Contatto> listaOss;
 
@@ -144,7 +144,7 @@ public class RubricaController implements Initializable {
     /**
      * @brief Metodo che permette la ricerca dalla GUI.
      * 
-     * Tale metodo grazie all'ausilio del metodo \ref InterfacciaRubrica::ricerca(String text) "ricerca" presente in InterfacciaRubrica, permette di ricercare ciò che viene scritto all'interno del textField apposito (fieldRicerca) presenta nella GUI.
+     * Tale metodo grazie all'ausilio del metodo \ref InterfacciaRubrica::ricerca(String text) "ricerca" presente in InterfacciaRubrica, permette di ricercare ciò che viene scritto all'interno del TextField apposito (fieldRicerca) presenta nella GUI.
      */
     private void ricerca(){
         fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -193,7 +193,7 @@ public class RubricaController implements Initializable {
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
-    private void leggiFileBtnAction(ActionEvent event) {
+    private void leggiFileBtnAction(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser(); 
         fileChooser.setTitle("Open Resource File"); 
         
@@ -305,11 +305,11 @@ public class RubricaController implements Initializable {
     
     
     /**
-     * @brief Metodo che permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
+     * @brief Metodo che permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto before,Contatto after) "modificaContatto".
      * 
      * Tale metodo permette la modifica di un contatto visibile nella Rubrica mostrata nella Scena. 
      * 
-     * @pre Ricercare, nella Rubrica, il contatto da voler modificare.
+     * @pre Ricercare nella Rubrica, il contatto da voler modificare.
      * @post Modifica visibile nella Rubrica della Scena.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto modificaBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
@@ -340,7 +340,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void salvataggioManualeBtnAction(ActionEvent event) throws IOException{
-        gestoreFile.scriviFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv", rubrica);
+        gestoreFile.scriviFile("default.csv", rubrica);
     }
     
     /**

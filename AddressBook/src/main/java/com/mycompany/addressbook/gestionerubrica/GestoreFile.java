@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  * @class GestoreFile
- * @brief Classe per la gestione del file di salvataggio della rubrica.
+ * @brief Classe per la gestione dell' Input/Output della rubrica.
  *
  * Questa classe fornisce metodi per leggere e scrivere su un file, gestendo così il caricamento e il salvataggio della rubrica.
  * 
@@ -29,46 +29,47 @@ public class GestoreFile {
      * Questo metodo accede al file specificato, legge i dati e li converte
      * in un'istanza di `InterfacciaRubrica`.
      *
-     * @pre il file, da cui leggere, esiste.
+     * @pre il file, da cui leggere, esiste ed è nel formato corretto.
      * 
-     * @param[in] nomefile Il nome del file da cui leggere i dati.
+     * @param[in] nomefile Il path del file da cui leggere i dati.
      * @return Un'istanza di `InterfacciaRubrica` contenente i dati letti.
      *         Se il file non esiste restituisce un errore.
      *
      */
-    public static InterfacciaRubrica leggiFile(String nomefile){
-         InterfacciaRubrica rubrica = new Rubrica();         
+    public static InterfacciaRubrica leggiFile(String nomefile) {
+        InterfacciaRubrica rubrica = new Rubrica();
         
-        try(Scanner s = new Scanner(new BufferedReader(new FileReader(nomefile)))){
-            
-            
-            if(s.nextLine() == null){ 
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomefile))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] dati = line.split(";");
+                
+                    // Crea un array di numeri di telefono e email
+                    String[] numeriTelefono = new String[3];
+                    String[] email = new String[3];
+                    
+                    // Assegna i numeri di telefono, separati dalla virgola
+                    String[] telefoni = dati[2].split(",");
+                    numeriTelefono[0] = telefoni.length > 0 ? telefoni[0] : "";
+                    numeriTelefono[1] = telefoni.length > 1 ? telefoni[1] : "";
+                    numeriTelefono[2] = telefoni.length > 2 ? telefoni[2] : "";
+                    
+                    // Assegna le email, separati dalla virgola
+                    String[] emails = dati[3].split(",");
+                    email[0] = emails.length > 0 ? emails[0] : "";
+                    email[1] = emails.length > 1 ? emails[1] : "";
+                    email[2] = emails.length > 2 ? emails[2] : "";
+                    
+                    // Crea un nuovo contatto e aggiungilo alla rubrica
+                    Contatto contatto = new Contatto(dati[0], dati[1], numeriTelefono[0],numeriTelefono[1],numeriTelefono[2], email[0],email[1],email[2]);
+                    rubrica.aggiungiContatto(contatto); // Aggiungi il contatto alla rubrica                
+                }
+            }catch(FileNotFoundException ex){
+                assert false;
+                return rubrica;
+            }catch(IOException ex){
                 return rubrica;
             }
-            
-            s.useDelimiter("[;\n]"); 
-            s.useLocale(Locale.US);
-            
-            
-            while(s.hasNext()){ 
-                
-                String nome = s.next();
-                String cognome = s.next();
-                String tel1 = s.next();
-		String tel2 = s.next();
-		String tel3 = s.next();
-                String mail1 = s.next();
-                String mail2 = s.next();
-                String mail3 = s.next();
-                
-                
-                Contatto contatto = new Contatto(nome,cognome,tel1,tel2,tel3,mail1,mail2,mail3);
-                rubrica.aggiungiContatto(contatto);
-            }
-        }catch(FileNotFoundException ex){
-            assert false; 
-            return rubrica;
-        }
         
         return rubrica;
     }
@@ -79,45 +80,49 @@ public class GestoreFile {
      * Questo metodo salva i dati della rubrica nel file specificato.
      * Se il file non esiste, viene creato.
      *
-     * @pre la rubrica esiste
-     * @param[in] nomefile Il nome del file in cui scrivere i dati.
+     * @pre la rubrica esiste.
+     * @param[in] nomefile Il path del file in cui scrivere i dati.
      * @param[in] rubrica il contenuto da scrivere nel file.
      */
 
-    public void scriviFile(String nomefile,InterfacciaRubrica rubrica) throws IOException{
-        assert rubrica!=null;
+    public void scriviFile(String nomefile,InterfacciaRubrica rubrica) throws IOException {
+        
+        assert(rubrica.getCollezione()!=null);
         try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
-            
-            pw.println("NOME;COGNOME;TEL1;TEL2;TEL3;MAIL1;MAIL2;MAIL3");             
-            for(Contatto c : rubrica.getCollezione()){
-                
-                pw.append(c.getNome());
-                pw.append(';');
-                
-		pw.append(c.getCognome());
-                pw.append(';');
-		
-		String[] temp;
-		temp = c.getTel();
-		
-                pw.append(temp[0]);
-                pw.append(';');
-                pw.append(temp[1]);
-                pw.append(';');
-		pw.append(temp[2]);
-                pw.append(';');
 
-		temp = c.getMail();
+
+            for(Contatto c : rubrica.getCollezione() ){
                 
-		pw.append(temp[0]);
-                pw.append(';');
-                pw.append(temp[1]);
-                pw.append(';');
-		pw.append(temp[2]);
-                pw.append('\n');
                 
+                pw.print(c.getNome());
+                
+                pw.append(";");
+
+                pw.print(c.getCognome());
+                pw.append(";");
+
+                pw.print(c.getTel()[0]);
+                pw.append(",");
+
+                pw.print(c.getTel()[1]);
+                pw.append(",");
+
+                pw.print(c.getTel()[2]);
+                pw.append(";");
+
+                pw.print(c.getMail()[0]);
+                pw.append(",");
+
+                pw.print(c.getMail()[1]);
+                pw.append(",");
+
+                pw.print(c.getMail()[2]);
+                pw.append("\n");
             }
-            
+
+
         }
+        
     }
+    
 }
