@@ -18,7 +18,7 @@ import java.io.IOException;
  *
  */
 
-public class App extends Application {
+public class App extends Application{
 
     private static Scene scene;
 
