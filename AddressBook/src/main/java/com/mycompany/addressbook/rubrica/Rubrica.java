@@ -56,7 +56,6 @@ public class Rubrica implements InterfacciaRubrica{
      */
     @Override
     public void aggiungiContatto(Contatto c) {
-        
         listaContatti.add(c);
     }
     
@@ -95,14 +94,13 @@ public class Rubrica implements InterfacciaRubrica{
     public List<Contatto> ricerca(String query){
         List<Contatto> result = new ArrayList<>();
 
-        for (Contatto contatto : this.getCollezione()){
-            if (contatto.getCognome().toLowerCase().contains(query.toLowerCase())) {
+        for(Contatto contatto : this.getCollezione()){
+            if (contatto.getCognome().toLowerCase().contains(query.toLowerCase())){
                 result.add(contatto);
-            }else if (contatto.getNome().toLowerCase().contains(query.toLowerCase())) {
+            }else if (contatto.getNome().toLowerCase().contains(query.toLowerCase())){
                 result.add(contatto);
             }
         }
-
         return result;
     }
 

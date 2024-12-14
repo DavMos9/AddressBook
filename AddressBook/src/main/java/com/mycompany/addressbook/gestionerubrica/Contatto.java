@@ -139,7 +139,7 @@ public class Contatto{
      * @brief metodo che permette di impostare il nome del contatto.
      *
      *
-     * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso
+     * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso.
      *
      * @param[in] nome Una stringa che rappresenta il nome del contatto.
      **/
