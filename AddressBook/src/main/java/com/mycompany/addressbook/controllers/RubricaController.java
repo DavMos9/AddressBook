@@ -84,11 +84,10 @@ public class RubricaController implements Initializable {
     private Label labelTel3View;
 
     private GestoreFile gestoreFile = new GestoreFile();
-    private AggiungiModificaController controller2;
     /**
      * @brief attributo usato per istanziare un oggetto di tipo InterfacciaRubrica
      */
-    private static InterfacciaRubrica rubrica = (Rubrica) GestoreFile.leggiFile("default.csv");
+    private static InterfacciaRubrica rubrica = (Rubrica) GestoreFile.leggiFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv");
 
     /**
      *
@@ -96,14 +95,6 @@ public class RubricaController implements Initializable {
      */
     private ObservableList<Contatto> listaOss;
 
-
-    public void setAggiungiModificaController(AggiungiModificaController x){
-        controller2 = x;
-    }
-
-    public AggiungiModificaController getAggiungiModificaController(){
-        return controller2;
-    }
 
 
     /**
@@ -145,11 +136,15 @@ public class RubricaController implements Initializable {
         visualizzaContatto();
         
 
+        ricerca();
+        listaOss.setAll(rubrica.getCollezione());
+    }
+    
+    private void ricerca(){
         fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
             listaOss.setAll((rubrica.ricerca(newValue)));
             tableRubrica.getSelectionModel().clearSelection();
         });
-        listaOss.setAll(rubrica.getCollezione());
     }
     
     private void visualizzaContatto(){
@@ -260,8 +255,8 @@ public class RubricaController implements Initializable {
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
         FXMLLoader x=App.setRootAndGetLoader("AggiungiModifica");
-        setAggiungiModificaController(x.getController());
-        getAggiungiModificaController().setField(null);
+        AggiungiModificaController temp = x.getController();
+        temp.setField(null);
         
         listaOss.setAll(rubrica.getCollezione());
     }
@@ -313,9 +308,9 @@ public class RubricaController implements Initializable {
             assert selected != null;
         }else{
             FXMLLoader x = App.setRootAndGetLoader("AggiungiModifica");
-            setAggiungiModificaController(x.getController());
+            AggiungiModificaController temp = x.getController();
             
-            getAggiungiModificaController().setField(selected);
+            temp.setField(selected);
             
             tableRubrica.getSelectionModel().clearSelection(); 
            
@@ -331,7 +326,7 @@ public class RubricaController implements Initializable {
      */
     @FXML
     private void salvataggioManualeBtnAction(ActionEvent event) throws IOException{
-        gestoreFile.scriviFile("default.csv", rubrica);
+        gestoreFile.scriviFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv", rubrica);
     }
 
     @FXML
