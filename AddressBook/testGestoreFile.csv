@@ -1,3 +1,2 @@
-NOME;COGNOME;TEL1;TEL2;TEL3;MAIL1;MAIL2;MAIL3
-nome1;cognome1;000;111;222;a1@a;b1@b;c1@c
-nome2;cognome2;001;112;223;a2@a;b2@b;c2@c
+nome1;cognome1;000,111,222;a1@a,b1@b,c1@c
+nome2;cognome2;001,112,223;a2@a,b2@b,c2@c

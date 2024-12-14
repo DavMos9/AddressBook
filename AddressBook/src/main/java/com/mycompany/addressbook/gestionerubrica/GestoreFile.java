@@ -44,25 +44,21 @@ public class GestoreFile {
                 while ((line = reader.readLine()) != null) {
                     String[] dati = line.split(";");
                 
-                    // Crea un array di numeri di telefono e email
                     String[] numeriTelefono = new String[3];
                     String[] email = new String[3];
                     
-                    // Assegna i numeri di telefono, separati dalla virgola
                     String[] telefoni = dati[2].split(",");
                     numeriTelefono[0] = telefoni.length > 0 ? telefoni[0] : "";
                     numeriTelefono[1] = telefoni.length > 1 ? telefoni[1] : "";
                     numeriTelefono[2] = telefoni.length > 2 ? telefoni[2] : "";
                     
-                    // Assegna le email, separati dalla virgola
                     String[] emails = dati[3].split(",");
                     email[0] = emails.length > 0 ? emails[0] : "";
                     email[1] = emails.length > 1 ? emails[1] : "";
                     email[2] = emails.length > 2 ? emails[2] : "";
                     
-                    // Crea un nuovo contatto e aggiungilo alla rubrica
                     Contatto contatto = new Contatto(dati[0], dati[1], numeriTelefono[0],numeriTelefono[1],numeriTelefono[2], email[0],email[1],email[2]);
-                    rubrica.aggiungiContatto(contatto); // Aggiungi il contatto alla rubrica                
+                    rubrica.aggiungiContatto(contatto);               
                 }
             }catch(FileNotFoundException ex){
                 assert false;
@@ -70,7 +66,6 @@ public class GestoreFile {
             }catch(IOException ex){
                 return rubrica;
             }
-        
         return rubrica;
     }
 
@@ -84,7 +79,6 @@ public class GestoreFile {
      * @param[in] nomefile Il path del file in cui scrivere i dati.
      * @param[in] rubrica il contenuto da scrivere nel file.
      */
-
     public void scriviFile(String nomefile,InterfacciaRubrica rubrica) throws IOException {
         
         assert(rubrica.getCollezione()!=null);
@@ -92,7 +86,6 @@ public class GestoreFile {
 
 
             for(Contatto c : rubrica.getCollezione() ){
-                
                 
                 pw.print(c.getNome());
                 
@@ -119,10 +112,7 @@ public class GestoreFile {
                 pw.print(c.getMail()[2]);
                 pw.append("\n");
             }
-
-
         }
-        
     }
     
 }
