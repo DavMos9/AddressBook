@@ -3,11 +3,10 @@ package com.mycompany.addressbook.gestionerubrica;
 /**
  * @file Contatto.java
  * @class Contatto
- * @brief Questa classe definisce la Struttura Dati di un Contatto
+ * @brief Questa classe definisce la Struttura Dati Contatto.
  * 
- * La classe contatto include nome,cognome,telefono e mail.
- * Inoltre permette di inserire da 0 a 3 numeri di telefono e da 0 a 3 inidirizzi mail
- * 
+ * La classe Contatto include nome,cognome,telefono e mail.
+ * Inoltre permette di inserire da 0 a 3 numeri di telefono e da 0 a 3 indirizzi mail.
  * 
  * @author Ronca Ciro
  * 
@@ -41,24 +40,22 @@ public class Contatto{
     
     /**
      * 
-     * @brief Costruttore della classe contatto.
+     * @brief Costruttore della classe Contatto.
      * 
      * @pre il contatto deve presentare almeno il nome o il cognome valorizzato.
      * 
-     * @param[in] nome Il nome del contatto
-     * @param[in] cognome Il cognome del contatto
-     * @param[in] tel1 Il primo numero di telefono del contatto
-     * @param[in] tel2 Il secondo numero di telefono del contatto
-     * @param[in] tel3 Il terzo numero di telefono del contatto
-     * @param[in] mail1 Il primo indirizzo mail del contatto
-     * @param[in] mail2 Il secondo indirizzo mail del contatto
-     * @param[in] mail3 Il terzo indirizzo mail del contatto
-     * 
+     * @param[in] nome Il nome del contatto.
+     * @param[in] cognome Il cognome del contatto.
+     * @param[in] tel1 Il primo numero di telefono del contatto.
+     * @param[in] tel2 Il secondo numero di telefono del contatto.
+     * @param[in] tel3 Il terzo numero di telefono del contatto.
+     * @param[in] mail1 Il primo indirizzo mail del contatto.
+     * @param[in] mail2 Il secondo indirizzo mail del contatto.
+     * @param[in] mail3 Il terzo indirizzo mail del contatto.
      * 
      */
-    
     public Contatto(String nome,String cognome,String tel1,String tel2,String tel3,String mail1,String mail2,String mail3){
-        assert !nome.equals("") || !cognome.equals(""); //valuto la precondizione
+        assert !nome.equals("") || !cognome.equals("");
 
         this.nome=nome;
         this.cognome=cognome;
@@ -78,12 +75,11 @@ public class Contatto{
     
     /**
      * 
-     * @brief Restituisce il nome del contatto
+     * @brief Restituisce il nome del contatto.
      * 
-     * Questo metodo consente di ottenere la stringa del nome 
+     * Questo metodo consente di ottenere la stringa del nome.
      * 
-     * 
-     * @return Una stringa rappresentate il nome del contatto
+     * @return Una stringa rappresentate il nome del contatto.
      */
      
     public String getNome() {
@@ -93,12 +89,12 @@ public class Contatto{
     
     /**
      * 
-     * @brief Restituisce il cognome del contatto
+     * @brief Restituisce il cognome del contatto.
      * 
-     * Questo metodo consente di ottenere la stringa del cognome
+     * Questo metodo consente di ottenere la stringa del cognome.
      * 
      * 
-     * @return Una stringa rappresentate il cognome del contatto
+     * @return Una stringa rappresentate il cognome del contatto.
      */
     
     public String getCognome() {
@@ -107,11 +103,11 @@ public class Contatto{
     
     /**
      * 
-     * @brief Restituisce i numeri di telefono del contatto
+     * @brief Restituisce i numeri di telefono del contatto.
      * 
-     * Questo metodo permette di ottere i numeri di telefono
+     * Questo metodo permette di ottenere i numeri di telefono.
      * 
-     * @return Un array di stringhe rappresentate i numeri di telefono
+     * @return Un array di stringhe rappresentate i numeri di telefono.
      * 
      * 
      */
@@ -155,9 +151,9 @@ public class Contatto{
  *
  * @brief metodo che permette di impostare il cognome del contatto.
  *
- * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso
+ * @post il valore del campo cognome dell'oggetto viene aggiornato con il parametro di ingresso.
  *
- * @param[in] cognome Una stringa che rappresenta il cognome del contatto
+ * @param[in] cognome Una stringa che rappresenta il cognome del contatto.
  *
  *
  */
@@ -176,7 +172,7 @@ public class Contatto{
      *
      * @param[in] tel1 Questa stringa rappresenta il primo numero di telefono del contatto.
      * @param[in] tel2 Questa stringa rappresenta il secondo numero di telefono del contatto.
-     * @param[in] tel3 Questa stringa rappresenta il terzo numero di telefono.
+     * @param[in] tel3 Questa stringa rappresenta il terzo numero di telefono del contatto.
      *
      */
     public void setTel(String tel1,String tel2,String tel3){
@@ -194,9 +190,9 @@ public class Contatto{
      *
      * @post il valore dei campi mail dell'oggetto vengono aggiornati con i parametri di ingresso.
      *
-     * @param[in] mail1 Questa stringa rappresenta il primo indirizzo mail del contatto
-     * @param[in] mail2 Questa stringa rappresenta il secondo indirizzo mail del contatto
-     * @param[in] mail3 Questa stringa rappresenta il terzo indirizzo mail del contatto
+     * @param[in] mail1 Questa stringa rappresenta il primo indirizzo mail del contatto.
+     * @param[in] mail2 Questa stringa rappresenta il secondo indirizzo mail del contatto.
+     * @param[in] mail3 Questa stringa rappresenta il terzo indirizzo mail del contatto.
      */
 
     public void setMail(String mail1,String mail2,String mail3){

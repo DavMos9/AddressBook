@@ -1,7 +1,6 @@
 package com.mycompany.addressbook.rubrica;
 
 import com.mycompany.addressbook.gestionerubrica.Comparatore;
-import com.mycompany.addressbook.rubrica.InterfacciaRubrica;
 import com.mycompany.addressbook.gestionerubrica.Contatto;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,7 @@ import java.util.List;
  * @class Rubrica
  * @brief Classe che implementa e gestisce una Rubrica di contatti.
  * 
- * La classe rubrica, implementa l'interfaccia InterfacciaRubrica che permette di aggiungere,modificare,eliminare e ricercare
- * un contatto nella rubrica.
+ * La classe rubrica, implementa l'interfaccia InterfacciaRubrica.
  * Per la Documentazione di tutti i metodi vedere l'interfaccia @ref InterfacciaRubrica
  * 
  * @author Ronca Ciro
@@ -25,7 +23,7 @@ import java.util.List;
 public class Rubrica implements InterfacciaRubrica{
     
     /**
-     * @brief Lista usata per permettere di gestire tutti i contatti.
+     * @brief Lista usata per gestire tutti i contatti.
      */
     private List<Contatto> listaContatti;
     
@@ -34,7 +32,7 @@ public class Rubrica implements InterfacciaRubrica{
      * 
      * @brief Costruttore della classe Rubrica.
      * 
-     * permette di istanziare una Lista di contatti.
+     * Permette di istanziare una Lista di contatti.
      * 
      */
     public Rubrica(){
@@ -52,7 +50,6 @@ public class Rubrica implements InterfacciaRubrica{
      * 
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto".
      * 
-     * la precondizione è già soddisfatta nel Costruttore di Contatto.
      */
     @Override
     public void aggiungiContatto(Contatto c) {
@@ -61,8 +58,7 @@ public class Rubrica implements InterfacciaRubrica{
     
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
-     *  
-     * la precondizione è già soddisfatta nel Costruttore di Contatto.
+     * 
      */
     @Override
     public void modificaContatto(Contatto before,Contatto after){
@@ -74,21 +70,21 @@ public class Rubrica implements InterfacciaRubrica{
     /**
      * @brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto".
      * 
+     * 
      */
     @Override
     public void eliminaContatto(Contatto c) {
         listaContatti.remove(c);
+        
+        assert !listaContatti.contains(c);
     }
 
-    /** RIVEDERE
-     *
-     * @brief permette di ricercare un contatto all'interno della Rubrica.
+    /** 
      *
      *
-     * @post viene mostrato il risultato della ricerca.
+     *@brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::ricerca(String text) "ricerca".
+     *  
      *
-     * @param[in] event è un parametro che cattura l'evento legato all'azione del popolamento del TextField fieldRicerca,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo.
      */
     @Override
     public List<Contatto> ricerca(String query){
@@ -104,6 +100,12 @@ public class Rubrica implements InterfacciaRubrica{
         return result;
     }
 
+    /** 
+     *
+     *@brief vedere documentazione in InterfacciaRubrica \ref InterfacciaRubrica::ordina() "ordina".
+     *  
+     *
+     */
     @Override
     public void ordina(){
         listaContatti.sort(new Comparatore());

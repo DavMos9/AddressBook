@@ -31,12 +31,11 @@ public class GestoreFile {
      *
      * @pre il file, da cui leggere, esiste.
      * 
-     * @param nomefile Il nome del file da cui leggere i dati.
+     * @param[in] nomefile Il nome del file da cui leggere i dati.
      * @return Un'istanza di `InterfacciaRubrica` contenente i dati letti.
      *         Se il file non esiste restituisce un errore.
      *
      */
-
     public static InterfacciaRubrica leggiFile(String nomefile){
          InterfacciaRubrica rubrica = new Rubrica();         
         
@@ -75,14 +74,14 @@ public class GestoreFile {
     }
 
     /**
-     *
      * @brief Scrive i dati della rubrica in un file.
      *
-     * Questo metodo salva i dati della rubrica corrente nel file specificato.
+     * Questo metodo salva i dati della rubrica nel file specificato.
      * Se il file non esiste, viene creato.
      *
      * @pre la rubrica esiste
-     * @param nomefile Il nome del file in cui scrivere i dati.
+     * @param[in] nomefile Il nome del file in cui scrivere i dati.
+     * @param[in] rubrica il contenuto da scrivere nel file.
      */
 
     public void scriviFile(String nomefile,InterfacciaRubrica rubrica) throws IOException{

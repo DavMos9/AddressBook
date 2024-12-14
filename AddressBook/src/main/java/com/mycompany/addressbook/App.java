@@ -26,12 +26,10 @@ public class App extends Application {
      * @brief Avvia l'applicazione.
      *
      * Questo metodo viene chiamato automaticamente all'avvio dell'applicazione.
-     * Imposta e mostra la scena principale definita nel file FXML.
+     * Imposta e mostra la scena principale definita nel file FXML, grazie ai metodi richiamati.
      *
      * @param stage rappresenta la finestra dell'applicazione.
-     * @throws IOException viene sollevata se il file FXML non può essere caricato.
      */
-
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("Rubrica"), 1000, 800);
@@ -43,13 +41,12 @@ public class App extends Application {
     /**
      * @brief Imposta la configurazione radice della scena corrente.
      *
-     * Questo metodo consente di cambiare la configurazione principale dell'applicazione
+     * Questo metodo consente di cambiare la Scena mostrata dall'applicazione
      * caricando un nuovo file FXML.
-     *
-     * @param fxml Il nome del file FXML da caricare.
-     * @throws IOException Se il file FXML non può essere caricato.
+     * 
+     * @param[in] fxml Il nome del file FXML da caricare.
+     * @return ritorna la risorsa ottenuta dal file fxml.
      */
-
     public static FXMLLoader setRootAndGetLoader(String fxml) throws IOException{
         FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         scene.setRoot(loader.load());
@@ -61,11 +58,10 @@ public class App extends Application {
      * @brief Carica un file FXML e restituisce il nodo radice.
      *
      * Questo metodo utilizza FXMLLoader per caricare un file FXML e restituisce
-     * la configurazione radice definita in esso.
+     * Il nodo radice del layout caricato.
      *
-     * @param fxml Il nome del file FXML da caricare.
+     * @param[in] fxml Il nome del file FXML da caricare.
      * @return Il nodo radice del layout caricato.
-     * @throws IOException Se il file FXML non può essere caricato.
      */
     private Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
@@ -79,7 +75,6 @@ public class App extends Application {
      *
      * @param[in] args vettore che presenta al suo interno tutti i dati passati da riga di comando.
      */
-
     public static void main(String[] args) {
         launch();
     }

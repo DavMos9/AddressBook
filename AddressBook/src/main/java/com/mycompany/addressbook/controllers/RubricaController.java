@@ -31,7 +31,7 @@ import javafx.stage.FileChooser;
 /**
  * @file RubricaController.java
  * @class RubricaController
- * @brief Controller Scena principale
+ * @brief Controller Scena principale.
  * 
  * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di ricerca, eliminazione o visualizzazione in dettaglio e non dei contatti elencati nella rubrica, 
  * e inoltre le operazioni di salvataggio o importazione di rubriche all'interno di essa.
@@ -82,40 +82,42 @@ public class RubricaController implements Initializable {
     private Label labelTel2View;
     @FXML
     private Label labelTel3View;
-
+    
+    /**
+     * @brief Attributo usato per richiamare i metodi della classe GestoreFile.
+     */
     private GestoreFile gestoreFile = new GestoreFile();
     /**
-     * @brief attributo usato per istanziare un oggetto di tipo InterfacciaRubrica
+     * @brief Attributo usato per gestire una Rubrica.
+     * 
+     * Tale attributo viene inizializzato con il contenuto letto dal file di Default.
      */
     private static InterfacciaRubrica rubrica = (Rubrica) GestoreFile.leggiFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv");
 
     /**
      *
-     * @brief lista osservabile che permette di visualizzare sulla Scena tutti i contatti inseriti e le operazioni che vengono effettuate su di essi.
+     * @brief Lista osservabile che permette, grazie al collegamento con laTableView presente nella Scena, di visualizzare sulla Scena tutti i contatti inseriti e le operazioni che vengono effettuate su di essi.
      */
     private ObservableList<Contatto> listaOss;
 
 
 
     /**
-     * @brief metodo che restituisce l'attributo di tipo InterfacciaRubrica.
+     * @brief Metodo che restituisce l'attributo di tipo InterfacciaRubrica.
      *
-     *
-     * @return attributo InterfacciaRubrica
+     * @return Attributo InterfacciaRubrica.
      */
     public static InterfacciaRubrica getInterfacciaRubrica(){
         return rubrica;
     }
 
-
-
-
     /**
      *
-     * @brief metodo che permette di inizializzare il controller legato al file della Scena Rubrica.fxml.
+     * @brief Metodo che permette di inizializzare il controller legato al file della Scena Rubrica.fxml .
      *
-     *
-     *
+     * Tale metodo gestisce, richiamando i metodi appositi, le operazioni di 
+     * Visualizzazione in Dettaglio dei contenuti di un contatto e di Ricerca di un Contatto.
+     * 
      * @param[in] url è un parametro al quale viene passato il path relativo della Scena che deve mostrare.
      * Nel nostro caso quindi rappresenterà il path del File Rubrica.fxml a cui si associa tale Controller.
      * Altrimenti, in caso di posizione non nota, avrà valore null.
@@ -139,7 +141,11 @@ public class RubricaController implements Initializable {
         ricerca();
         listaOss.setAll(rubrica.getCollezione());
     }
-    
+    /**
+     * @brief Metodo che permette la ricerca dalla GUI.
+     * 
+     * Tale metodo grazie all'ausilio del metodo \ref InterfacciaRubrica::ricerca(String text) "ricerca" presente in InterfacciaRubrica, permette di ricercare ciò che viene scritto all'interno del textField apposito (fieldRicerca) presenta nella GUI.
+     */
     private void ricerca(){
         fieldRicerca.textProperty().addListener((observable, oldValue, newValue) -> {
             listaOss.setAll((rubrica.ricerca(newValue)));
@@ -147,6 +153,12 @@ public class RubricaController implements Initializable {
         });
     }
     
+    /**
+     * @brief Metodo che permette la visualizzazione in dettaglio di un contatto.
+     * 
+     * Tale metodo grazie alla Selezione di un Contatto all'interno della Rubrica, mostrata nella TableView, permette di mostrare il contenuto salvato in tale Contatto.
+     * 
+     */
     private void visualizzaContatto(){
         tableRubrica.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue != null){
@@ -162,6 +174,9 @@ public class RubricaController implements Initializable {
         });
         
     }
+    /**
+     * @brief metodo che definisce e mostra un messaggio Informativo di Allerta.
+     */
     private void alert(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Attenzione");
@@ -169,18 +184,18 @@ public class RubricaController implements Initializable {
         alert.showAndWait();
     }
     /**
-     * @brief permette la lettura di un file, grazie al metodo \ref GestoreFile::leggiFile(String nomefile) "leggiFile" di GestoreFile.
+     * @brief Metodo che permette la lettura di un file, grazie al metodo \ref GestoreFile::leggiFile(String nomefile) "leggiFile" di GestoreFile.
      * 
-     * permette di selezionare un file all'interno del dispositivo e di leggerlo in modo tale da poter importare una Rubrica esterna salvata su file.
+     * Tale metodo permette di selezionare un file all'interno del dispositivo e di leggerlo in modo tale da poter importare una Rubrica esterna salvata su file.
      * Ciò ci permette di non visualizzare più la Rubrica corrente ma quella caricata dal file.
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto leggiFileBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void leggiFileBtnAction(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser(); //classe che permette l'apertura di una finestra
-        fileChooser.setTitle("Open Resource File"); //nome della finestra
+        FileChooser fileChooser = new FileChooser(); 
+        fileChooser.setTitle("Open Resource File"); 
         
         
         File temp = fileChooser.showOpenDialog(fieldRicerca.getParent().getScene().getWindow()); 
@@ -194,14 +209,14 @@ public class RubricaController implements Initializable {
         
     }
     /**
-     * @brief permette la scrittura su file della Rubrica, grazie al metodo \ref GestoreFile::ScriviFile(String nomefile) "ScriviFile" di GestoreFile.
+     * @brief Metodo che permette la scrittura su file della Rubrica, grazie al metodo \ref GestoreFile::ScriviFile(String nomefile) "ScriviFile" di GestoreFile.
      * 
-     * permette di salvare il contenuto della Rubrica all'interno di un file, che possiamo nominare come vogliamo e possiamo posizionare dove vogliamo nel dispositivo corrente.
+     * Tale metodo permette di salvare il contenuto della Rubrica all'interno di un file, che possiamo nominare come vogliamo e possiamo posizionare dove vogliamo nel dispositivo corrente.
      * 
      * 
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto scriviFileBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void scriviFileBtnAction(ActionEvent event) throws IOException{
@@ -217,13 +232,13 @@ public class RubricaController implements Initializable {
         gestoreFile.scriviFile(temp.getPath(), getInterfacciaRubrica());
     }
     /**
-     * @brief permette di salvare le modifiche su un file e di chiudere l'applicazione.
+     * @brief mMetodo che permette di salvare le modifiche sul file di Default e di chiudere l'applicazione.
      *
-     * permette di effettuare la scrittura del file di Default per la Rubrica e di uscire dall'applicazione.
+     * Tale metodo permette di effettuare la scrittura del file di Default per la Rubrica e di uscire dall'applicazione.
      *
-     * @post il contenuto attuale della Rubrica viene salvato e viene chiusa l'applicazione.
+     * @post il contenuto attuale della Rubrica viene salvato su file e viene chiusa l'applicazione.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto salvaEsciBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo.
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso.
      */
     @FXML
     private void salvaEsciBtnAction(ActionEvent event) throws IOException{
@@ -234,23 +249,23 @@ public class RubricaController implements Initializable {
     }
     /**
      * 
-     * @brief permette di uscire dall'applicazione, senza salvare le modifiche effettuate durante la sessione corrente.
+     * @brief Metodo che permette di uscire dall'applicazione, senza salvare le modifiche effettuate durante la sessione corrente.
      * @post l'applicazione viene chiusa.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto esciBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void esciBtnAction(ActionEvent event) {
       exit();
     }
     /**
-     * @brief permette di aggiungere un contatto in Rubrica e di visualizzarlo al suo interno, grazie al metodo \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto" .
+     * @brief Metodo che permette di aggiungere un contatto in Rubrica e di visualizzarlo al suo interno, grazie al metodo \ref InterfacciaRubrica::aggiungiContatto(Contatto c) "aggiungiContatto" .
      * 
-     * Permette di visualizzare il contatto aggiunto all'interno della rubrica.
+     * Permette di aggiungere e visualizzare il contatto aggiunto all'interno della rubrica, grazie alle operazioni effettuate sulla seconda Scena "AggiungiModifica.fxml".
      * 
      * @post il contatto è visibile nella rubrica presente nella Scena.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto aggiungiBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void aggiungiContattoBtnAction(ActionEvent event) throws IOException {
@@ -262,12 +277,12 @@ public class RubricaController implements Initializable {
     }
     /**
      * 
-     * @brief permette di rimuovere e non visualizzare più un Contatto dalla Rubrica mostrata, grazie al metodo in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto"
+     * @brief Metodo che permette di rimuovere e non visualizzare più un Contatto dalla Rubrica mostrata, grazie al metodo in InterfacciaRubrica \ref InterfacciaRubrica::eliminaContatto(Contatto c) "eliminaContatto".
      * 
-     * @pre ricercare il contatto da voler eliminare.
-     * @post contatto non è più presente e visualizzabile nella rubrica.
+     * @pre Ricercare il contatto da voler eliminare.
+     * @post Il contatto non è più presente e visualizzabile nella rubrica.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto eliminaBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void eliminaContattoBtnAction(ActionEvent event){
@@ -290,14 +305,14 @@ public class RubricaController implements Initializable {
     
     
     /**
-     * @brief permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
+     * @brief Metodo che permette di modificare le informazioni di un Contatto, grazie all'uso del metodo \ref InterfacciaRubrica::modificaContatto(Contatto c) "modificaContatto".
      * 
-     * Permette la modifica di un contatt,o visibile nella Rubrica mostrata nella Scena. 
+     * Tale metodo permette la modifica di un contatto visibile nella Rubrica mostrata nella Scena. 
      * 
-     * @pre ricercare il contatto da voler modificare.
-     * @post modifica visibili nella Rubrica della Scena.
+     * @pre Ricercare, nella Rubrica, il contatto da voler modificare.
+     * @post Modifica visibile nella Rubrica della Scena.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto modificaBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso. 
      */
     @FXML
     private void modificaContattoBtnAction(ActionEvent event) throws IOException{
@@ -317,18 +332,24 @@ public class RubricaController implements Initializable {
         }
     }
     /**
-     * @brief permette il Salvataggio Manuale della Rubrica durante la sessione, grazie all'uso del metodo \ref GestoreFile::scriviFile(String nomefile) "scriviFile" in GestoreFile.
+     * @brief Metodo che permette il Salvataggio Manuale della Rubrica durante la sessione nel file di Default, grazie all'uso del metodo \ref GestoreFile::scriviFile(String nomefile) "scriviFile" in GestoreFile.
      *
-     * Permette di salvare il contenuto della Rubrica, in maniera manuale, durante la sessione.
-     * @post rubrica salvata sul File di Default.
+     * @post Rubrica salvata sul File di Default.
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto salvataggioManualeBtn,
-     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo.
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso.
      */
     @FXML
     private void salvataggioManualeBtnAction(ActionEvent event) throws IOException{
         gestoreFile.scriviFile(".\\src\\main\\resources\\com\\mycompany\\addressbook\\default.csv", rubrica);
     }
-
+    
+    /**
+     * @brief Metodo che permette di accedere al sito del Repository GitHub del progetto.
+     * 
+     * 
+     * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto salvataggioManualeBtn,
+     * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo stesso.
+     */
     @FXML
     private void documentazioneBtnAction(ActionEvent event) throws URISyntaxException, IOException {
         if(Desktop.isDesktopSupported()){

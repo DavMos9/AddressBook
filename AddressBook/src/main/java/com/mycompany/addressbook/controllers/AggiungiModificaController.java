@@ -3,11 +3,8 @@ package com.mycompany.addressbook.controllers;
 import com.mycompany.addressbook.App;
 import com.mycompany.addressbook.gestionerubrica.Contatto;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,15 +13,14 @@ import javafx.scene.control.TextField;
 /**
  * @file AggiungiModificaController.java
  * @class AggiungiModificaController
- * @brief Controller Scena secondaria
+ * @brief Controller Scena secondaria.
  * 
- * Questa classe controller gestisce le interazioni con l'utente relative alle operazioni di 
+ * Questa classe controller gestisce le interazioni con l'utente, relative alle operazioni di 
  * aggiunta e modifica dei contatti all'interno della Rubrica.
  * 
  * @author Quaranta Davide 
  */
 public class AggiungiModificaController {
-
     @FXML
     private Label labelTitle;
     @FXML
@@ -47,24 +43,45 @@ public class AggiungiModificaController {
     private Button confermaBtn;
     @FXML
     private Button annullaBtn;
-
+    
+    /**
+     * 
+     * @brief attributo di classe Contatto, usato per effettuare le operazioni di aggiunta e modifica.
+     */
     private Contatto contatto;
     
+    /**
+     * @brief Metodo che restituisce l'attributo Contatto.
+     * 
+     * @return attributo contatto.
+     */
     public Contatto getContatto(){
         return this.contatto;
     }
+    
+    /**
+     * @brief Metodo che inizializza il contenuto dell'attributo Contatto.
+     * 
+     * @param c valore per inizializzare l'attributo.
+     */
     public void setContatto(Contatto c){
         contatto = c;
     }
     
     
     
-    
+    /**
+     * @brief Metodo che inizializza la Scena a seconda dell'operazione da effettuare.
+     * 
+     * Tale metodo inizializza il contenuto della label e il contenuto dei TextField, a seconda dell'operazione che bisogna effettuare (Aggiunta o Modifica di un Contatto). 
+     * 
+     * @param temp 
+     */
     public void setField(Contatto temp){
-        if(temp == null){ // null -> aggiuntaContatto
+        if(temp == null){
             labelTitle.setText("Aggiungi Nuovo Contatto");
             
-        }else{  // notNull -> modificaContatto
+        }else{ 
             labelTitle.setText("Modifica Contatto");
             nomeField.setText(temp.getNome());
             cognomeField.setText(temp.getCognome());
@@ -76,30 +93,26 @@ public class AggiungiModificaController {
             mail3Field.setText(temp.getMail()[2]);
             
         }
-        
         setContatto(temp);
-        
     }
     
     /**
      * 
-     * @brief è il metodo legato all'azione del click del bottone denominato confermaBtn nella Scena.
+     * @brief Metodo legato all'azione del click del bottone denominato confermaBtn nella Scena.
      * 
      * Tale metodo permette di confemare le operazioni effettuate sulla rubrica, visibile nella Scena principale Rubrica.fxml.
      * Nello specifico le operazioni di Aggiunta e modifica di un contatto. Infine permette l'ordinamento di essi e il ritorno alla Scena principale.
      * 
-     * @pre l'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
+     * @pre L'utente ha accesso alla Scena (AggiungiModifica.fxml), grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
      * 
-     * @post viene modificato il contatto selezionato(garantito dalle post condizioni dei metodi set nella classe Contatto), oppure viene aggiunto il nuovo contatto alla rubrica.
+     * @post Il contatto selezionato viene modificato(garantito dalle post condizioni dei metodi set nella classe Contatto), oppure viene aggiunto il nuovo contatto alla rubrica.
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto confermaBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
      */
     @FXML
     private void confermaBtnAction(ActionEvent event) throws IOException{
-        if(getContatto() == null){ // null -> aggiungiContatto
-            //il controllo della precondizione che nome o cognome sia valorizzato viene effettuato nel costruttore di Contatto.
-            
+        if(getContatto() == null){
             if(nomeField.getText().equals("") && cognomeField.getText().equals("")){ //mostra popup per precondizione
                 alert();
             }else{
@@ -122,21 +135,25 @@ public class AggiungiModificaController {
         }
     }
     
+    /**
+     * @brief Metodo che definisce e mostra un messaggio Informativo di Allerta.
+     */
     private void alert(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Attenzione");
         alert.setHeaderText("il contatto deve presentare almeno il nome o il cognome");
         alert.showAndWait();
     }
+    
     /**
      * 
-     * @brief è il metodo legato all'azione del click del bottone denominato annullaBtn nella Scena.
+     * @brief Metodo legato all'azione del click del bottone denominato annullaBtn nella Scena.
      * 
      * Tale metodo permette di annullare le operazioni di aggiunta o modifica di contatti all'interno della rubrica, visibile nella Scena principale, e infine permette il ritorno ad essa .
      * 
-     * @pre l'utente ha accesso alla Scena AggiungiModifica.fxml, grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
+     * @pre L'utente ha accesso alla Scena AggiungiModifica.fxml, grazie al click del bottone "Aggiungi nuovo Contatto" o "modifica" presenti nella scena principale.
      * 
-     * @post ciò che viene effettuato sulla seconda scena quindi modifica delle informazioni di un contatto, o aggiunta di un nuovo contatto, non si riflette sulla Rubrica.
+     * @post Ciò che viene effettuato sulla seconda scena quindi modifica delle informazioni di un contatto, o aggiunta di un nuovo contatto, non si riflette sulla Rubrica.
      * 
      * @param[in] event è un parametro che cattura l'evento legato all'azione del click del tasto annullaBtn,
      * e fornisce informazioni utili per l'evento, che è possibile sfruttare all'interno del metodo. 
