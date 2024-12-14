@@ -10,8 +10,8 @@ A Java application developed with Maven that allows users to register their cont
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Java 8 
+* For testing Junit 5 
 
 ### Installing
 
@@ -20,18 +20,15 @@ A Java application developed with Maven that allows users to register their cont
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+* Run .jar
+
 ```
-code blocks for commands
+java -jar /PATH
 ```
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+For any problem please consult the doxygen documentation.
 
 ## Authors
 
@@ -45,21 +42,6 @@ Contributors names and contact info
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change](https://github.com/DavMos9/AddressBook/graphs/commit-activity) or See [release history](https://github.com/DavMos9/AddressBook/pulse)
 * 0.1
     * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+    * See [commit change](https://github.com/DavMos9/AddressBook/graphs/commit-activity) or See [release history](https://github.com/DavMos9/AddressBook/pulse)
