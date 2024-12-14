@@ -175,7 +175,7 @@ public class RubricaController implements Initializable {
         
     }
     /**
-     * @brief metodo che definisce e mostra un messaggio Informativo di Allerta.
+     * @brief Metodo che definisce e mostra un messaggio Informativo di Allerta.
      */
     private void alert(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -232,7 +232,7 @@ public class RubricaController implements Initializable {
         gestoreFile.scriviFile(temp.getPath(), getInterfacciaRubrica());
     }
     /**
-     * @brief mMetodo che permette di salvare le modifiche sul file di Default e di chiudere l'applicazione.
+     * @brief Metodo che permette di salvare le modifiche sul file di Default e di chiudere l'applicazione.
      *
      * Tale metodo permette di effettuare la scrittura del file di Default per la Rubrica e di uscire dall'applicazione.
      *
